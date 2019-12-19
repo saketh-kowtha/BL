@@ -5,3 +5,5 @@ employeeAttendence=$((RANDOM%2))
 wagePerHour=20
 workingHours=8
 
+partTimeHour=8
+
