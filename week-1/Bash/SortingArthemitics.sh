@@ -10,6 +10,38 @@ dict["c + a / b"]=$((c + a / b))
 
 dict["a % b + c"]=$((a % b + c))
 
+function sort(){
+    local n=${#arr[@]}
+    for ((i = 0; i<$((n)); i++)) 
+    do
+        for ((j = 0; j<$((n-i)); j++)) 
+        do
+            if [[ ${arr[j]} -gt ${arr[$((j+1))]} ]]
+            then
+                temp=${arr[$j]} 
+                arr[$j]=${arr[$((j+1))]}   
+                arr[$((j+1))]=$temp 
+            fi
+        done
+    done
+}
+
+
+function rsort(){
+    local n=${#arr[@]}
+    for ((i = 0; i<$((n)); i++)) 
+    do
+        for ((j = 0; j<$((n-i)); j++)) 
+        do
+            if [[ ${arr[j]} -lt ${arr[$((j+1))]} ]]
+            then
+                temp=${arr[$j]} 
+                arr[$j]=${arr[$((j+1))]}   
+                arr[$((j+1))]=$temp 
+            fi
+        done
+    done
+}
 
 count=0
 
@@ -20,13 +52,14 @@ do
     ((count++))
 done
 
-sorted=($(printf '%s\n' "${arr[@]}"|sort))
 
-rsorted=($(printf '%s\n' "${arr[@]}"|sort -r))
+sort
 
 
-echo Sorted : ${sorted[@]}
+echo Sorted : ${arr[@]}
 
-echo Reverse Sorted : ${rsorted[@]}
+rsort
+
+echo Reverse Sorted : ${arr[@]}
 
 
