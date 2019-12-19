@@ -11,3 +11,5 @@ case $employeeAttendence in
     0) ;;#Absent
     1) ;;#Present
 esac
+
+workingDayPerMonth=20
