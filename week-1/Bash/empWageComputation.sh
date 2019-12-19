@@ -1,9 +1,5 @@
 echo Welcome to Employee Wage Computation
 
-function getAttendece(){
-    echo $((RANDOM%2))
-}
-
 function dailyWage(){
     local wagePerHour=20
     local workingHours=8
@@ -27,15 +23,17 @@ totalWage=0
 declare -A dailyWages
 
 days=30
-while [ days -ne 0 ]
+
+while [ $days -ne 0 ]
 do
-    case $((getAttendece)) in 
+    case $((RANDOM%2)) in 
         0)  
             ;;#Absent
         1)  ((empWorkingDays++))
-            totalWage=$((totalWage + dailyWage))
-            $dailyWages[$empWorkingDays]=$dailyWage ;;#Present
+            totalWage=$((totalWage + $(dailyWage)))
+            dailyWages[$empWorkingDays]=$(dailyWage) ;;#Present
     esac
+    
     if [ $empWorkingDays -ge 20 ] || [ $((empWorkingDays*workingHours)) -ge 100 ]
     then
         break
@@ -44,5 +42,11 @@ do
 
 done
 
+for i in "${!dailyWages[@]}"
+do
+    echo "Day $i : ${dailyWages[$i]}"
+done
+
+echo Total Wage : $totalWage
 
 
