@@ -4,9 +4,8 @@ echo Choose a number between 1 - 100
 right=100
 left=0
 
-while [ $left -lt $right ] && [ $((right - left)) -ne 2 ]
+while [ $left -lt $right ] && [ $((right - left)) -ne 1 ]
 do
-echo $left $right
     
     read -p "Is It greater than $(( (right + left) /2)) ? [y/n] : " ans
     if [ $ans == "y" ]
@@ -17,4 +16,5 @@ echo $left $right
     fi
 done
 
-echo $((left + 1)) is your number
+
+echo $((right)) is your number
