@@ -1,22 +1,22 @@
 const fs = require("fs")
 const path = require("path")
 
-var stdin = process.openStdin();
+// var stdin = process.openStdin();
 
 
 class Util{
    constructor(){
-        const TIME = new Date()
+        // const TIME = new Date()
         
-        const input = []
-        stdin.addListener("data", (d) => {
-            input.push(d.toString().trim())
-            if(input.length == 1){
-                this.constructor.vendingMachine([2000, 1000, 500, 100, 50, 10, 5, 2, 1], 5000)
-            }
-        });
+        // const input = []
+        // stdin.addListener("data", (d) => {
+        //     input.push(d.toString().trim())
+        //     if(input.length == 1){
+        //         this.constructor.vendingMachine([2000, 1000, 500, 100, 50, 10, 5, 2, 1], 5000)
+        //     }
+        // });
 
-        console.log(`Time Elapsed ${((new Date()).getTime() - TIME.getTime() )/ 1000} sec`)
+        // console.log(`Time Elapsed ${((new Date()).getTime() - TIME.getTime() )/ 1000} sec`)
     }
    
    /**
@@ -113,7 +113,6 @@ class Util{
     }
 }
 
-a=new Util()
 
 
 module.exports.Util=Util
