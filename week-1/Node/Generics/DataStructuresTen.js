@@ -14,6 +14,14 @@ class StackList{
         return this.list.pop(0)
     }
 
+    isEmpty(){
+        return this.list.isEmpty()
+    }
+
+    size(){
+        return this.list.size()
+    }
+
     toString(){
         return this.list.toString()
     }
@@ -23,15 +31,26 @@ class StackList{
 class QueueList{
     
     constructor(){
-        this.list = new UnOrderedList()
+        this.stack1 = new StackList()
+        this.stack2 = new StackList()
     }
 
     queue(ele){
-        this.list.append(ele)
+        while(!this.stack1.isEmpty())
+            this.stack2.push(this.stack1.pop())
+        this.stack1.push(ele)
+        while(!this.stack2.isEmpty())
+            this.stack1.push(this.stack2.pop())
     }
 
     dequeue(){
-        return this.list.pop(0)
+        if(this.stack1.isEmpty())
+            return -1
+        return this.stack1.pop()
+    }
+
+    isEmpty(){
+        return this.stack1.isEmpty()
     }
 
     toString(){
