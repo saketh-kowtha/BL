@@ -21,12 +21,12 @@ class Stack {
     }
 
     pop(){
+        if(this.size() === 0)
+            throw Error("Index Out Of Bound")
         this.list.pop()
     }
 
 }
 
 
-evalEq = (statement) => {
-    for(let i = 0; i < ;)
-}
+module.exports = Stack

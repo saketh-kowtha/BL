@@ -1,7 +1,6 @@
-
 const Node = require("./ListNode")
 
-class UnOrderedList{
+class OrderedList{
     constructor(){
         this.list = null
         this.size = 0
@@ -13,27 +12,23 @@ class UnOrderedList{
         if(this.size === 0)
             this.list = node
         else {
-            let currNode = node
-            currNode.next = this.list
-            this.list = currNode
-        }
-        this.size++
-    }
+            let head = this.list
+            if(head == null || head.element >= node.element){
+                node.next = head
+                head = node
+            }
 
-    append(val){
-        if(this.search(val)) return
-        const node = new Node(val)
-        if(this.size === 0)
-            this.list = node
-        else {
             let currEle = this.list
-            while(currEle.next != null)
-                currEle = currEle.next
-            currEle.next = node
 
+            while(currEle.next != null && currEle.next.element < node.element){
+                currEle = currEle.next
+            }
+            node.next = currEle.next
+            currEle.next = node
         }
         this.size++
     }
+
 
     size(){
         return this.size
@@ -57,6 +52,7 @@ class UnOrderedList{
             }
             currEle = currEle.next
         }
+        this.size--
     }
 
     search(ele){
@@ -76,46 +72,24 @@ class UnOrderedList{
         return -1
     }
 
-    insert(ele, pos){
-        if(this.search(ele)) return
 
-        if(pos < 0) return
-        else if(pos === 0) return this.add(ele)
-
-        const node = new Node(ele)
-
-
-        let srt = this.list
-        let currEle = this.list
-        let index = 0
-
-        while(index < pos){
-            srt = currEle
-            currEle = currEle.next
-            index++
-        }
-        node.next = currEle
-        srt.next = node
-        this.size++
-    }
 
     pop(ele){
 
         if(!ele) {
+            this.size--
             const popEle = this.list.element
             this.list = this.list.next
-            this.size--
-
             return popEle
         }
 
         else if(!this.search(ele) && ele < 0 && ele > this.size) return -1
 
         else{   
+            this.size--
             let srt = this.list
             let currEle = this.list
             let index = 0
-            this.size--
 
             while(index < ele){
                 srt = currEle
@@ -128,7 +102,7 @@ class UnOrderedList{
 
 
     }
-    
+
     toString(){
         let currEle = this.list
         let data = []
@@ -154,8 +128,5 @@ class UnOrderedList{
 
 }
 
-module.exports = UnOrderedList
 
-
-
-
+module.exports = OrderedList
