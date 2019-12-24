@@ -179,7 +179,7 @@ isGameOver(){
     local dig=""
     for ((i=0; i < 3; i++))
     do
-        if [ ${matrix[$i,$i]} != " " ]
+        if [ "${matrix[$i,$i]}" != " " ]
         then
             dig+=${matrix[$i,$i]}
         fi

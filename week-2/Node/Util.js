@@ -19,11 +19,7 @@ class Util{
         // console.log(`Time Elapsed ${((new Date()).getTime() - TIME.getTime() )/ 1000} sec`)
     }
    
-   /**
-    * Anagrams 
-    * {@param a} {@param b}
-    */
-
+    //Anagram 
    static anagrams = ([a,b]) =>  a.split("").sort().join() == b.split("").sort().join()
    
     /**
@@ -96,7 +92,7 @@ class Util{
         })
     } 
 
-
+    //Vending Machine using recursion
     static vendingMachine = (notes, change) =>{
         if(change == 0)
             return 0

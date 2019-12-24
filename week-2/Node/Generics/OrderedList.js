@@ -1,5 +1,11 @@
 const Node = require("./ListNode")
 
+/**
+ * Author : Saketh
+ * Class : OrderedList
+ * desctiption : 
+ */
+
 class OrderedList{
     constructor(){
         this.list = null
@@ -28,7 +34,6 @@ class OrderedList{
         }
         this.size++
     }
-
 
     size(){
         return this.size
@@ -124,6 +129,14 @@ class OrderedList{
         }
         console.log(data.join(" -> "))
         return data.join(" -> ")
+    }
+
+    *iterate(){
+        let currEle = this.list
+        while(currEle != null){
+            yield currEle.element
+            currEle = currEle.next
+        }
     }
 
 }

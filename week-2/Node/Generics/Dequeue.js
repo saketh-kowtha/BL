@@ -1,3 +1,9 @@
+/**
+ * Author : Saketh
+ * Class : Dequeue
+ * desctiption : 
+ */
+
 class Dequeue {
     
     constructor(){

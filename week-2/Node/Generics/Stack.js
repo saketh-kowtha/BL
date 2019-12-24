@@ -1,3 +1,9 @@
+/**
+ * Author : Saketh
+ * Class : Stack
+ * desctiption : 
+ */
+
 class Stack {
     
     constructor(){

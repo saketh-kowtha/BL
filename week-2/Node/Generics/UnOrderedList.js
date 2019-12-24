@@ -1,6 +1,12 @@
 
 const Node = require("./ListNode")
 
+/**
+ * Author : Saketh
+ * Class : UnOrderedList
+ * desctiption : 
+ */
+
 class UnOrderedList{
     constructor(){
         this.list = null
