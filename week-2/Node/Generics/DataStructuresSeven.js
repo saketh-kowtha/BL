@@ -3,12 +3,19 @@ function bin(n){
 }
 
 function fact(n){
+    const memCache = {}
+    if(memCache[n])
+        return memCache
     if(n == 1) return 1
-    return n * fact(n - 1)
+    memCache[n] = n * fact(n - 1)
+    return memCache[n]
 }
 
 console.log(bin(1))
 console.log(bin(2))
 console.log(bin(3))
 console.log(bin(4))
-console.log(bin(100))
+console.log(bin(10))
+console.log(bin(20))
+console.log(bin(30))
+console.log(bin(40))

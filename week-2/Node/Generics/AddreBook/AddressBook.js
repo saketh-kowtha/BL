@@ -10,6 +10,8 @@ const crypto = require("./AddresssBookCrypto")
 
 const readline = require('readline');
 
+const Person = require("./Person")
+
 //Creating Sync STDIN
 const readlineInterface = readline.createInterface({
         input: process.stdin,
@@ -186,79 +188,28 @@ class AddressBoook{
     }
 
     //This method will display all contacts in address book
-    displayContacts(ele=this.addressBook[this.currentAddressBookName]){
+    displayContacts(ele){
+        if(!ele)
+            ele=this.addressBook[this.currentAddressBookName]
         console.table(ele)
     }
 
     //sortByName will sort address based on name
     sortByName(){
         const tempList = [...this.addressBook[this.currentAddressBookName]]
-        this.displayContacts(tempList.sort((a, b) => a.firstName[0] - b.firstName[0]))
+        this.displayContacts(tempList.sort((a, b) => a.firstName[0] > b.firstName[0] ? 0 : -1))
     }
 
     //sortByName will sort address based on Zip
     sortByZip(){
         const tempList = [...this.addressBook[this.currentAddressBookName]]
-        this.displayContacts(tempList.sort((a, b) => a.zip - b.zip))
+        this.displayContacts(tempList.sort((a, b) => parseInt(a.zip) - parseInt(b.zip)))
     }
 
     //This method will Delete contacts
     deleteContact(query){
         this.addressBook[this.currentAddressBookName] = this.addressBook[this.currentAddressBookName].filter(e => e._id != query)
         return "SuccessFully Deleted"
-    }
-
-}
-
-
-
-
-
-/**
- * Class -> Person
- * decription : This method holds user model and validation
- */
-class Person{
-    constructor({firstName, lastName,address,city,state,zip,phoneNumber}){
-        this.firstName = firstName
-        this.lastName = lastName
-        this.address = address
-        this.city = city
-        this.state = state
-        this.zip = zip
-        this.phoneNumber = phoneNumber
-        this._id = crypto.genToken()
-    }
-
-    validate(){
-        if(!isNaN(this.firstName))
-            return "Invalid First Name"
-        else if(!isNaN(this.lastName))
-            return "Invalid Last Name"
-        else if(!this.address)
-            return "Invalid Address"
-        else if(!this.city)
-            return "Invalid City Name"
-        else if(!this.state)
-            return "Invalid State"
-        else if(isNaN(this.zip))
-            return "Invalid ZIP"
-        else if(this.phoneNumber.lenght != 10 && isNaN(this.phoneNumber))
-            return "Invalid Phone Number"
-        return "OK"
-    }
-
-    toString(){
-        return JSON.stringify({
-            firstName: this.firstName,
-            lastName: this.lastName,
-            address: this.address,
-            city: this.city,
-            state: this.state,
-            zip: this.zip,
-            phoneNumber: this.phoneNumber,
-            _id: this._id
-        })
     }
 
 }

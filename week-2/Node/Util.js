@@ -1,9 +1,7 @@
 const fs = require("fs")
 const path = require("path")
 
-// var stdin = process.openStdin();
-
-
+  
 class Util{
    constructor(){
         // const TIME = new Date()
@@ -25,8 +23,6 @@ class Util{
     /**
     * Prime Numbers between 0 - 1000 
     */
-
-
    static primeNumbers = () => {
         for(let i = 0; i <= 1000; i++){
             let isPrime=true
@@ -38,7 +34,6 @@ class Util{
    }
 
    //Binary Search
-
    static binarySearch = (list, ele) => {
         let n = parseInt(list.length / 2)
         if(list[n] > ele){
@@ -71,18 +66,16 @@ class Util{
 
    //Bubble Sort
    static bubbleSort = (list) =>{
-       let n = list.length
+        let n = list.length
         console.log(`Before Sorting : ${list}`)
-       for(let i = 0; i < n; i++)
-        for(let j = 0; j < n - i - 1; j++)
-            if(list[j]>list[j+1])
-                [list[j], list[j+1]] = [list[j+1], list[j]]
-        
+        for(let i = 0; i < n; i++)
+            for(let j = 0; j < n - i - 1; j++)
+                if(list[j]>list[j+1])
+                    [list[j], list[j+1]] = [list[j+1], list[j]]
         console.log(`After Sorting : ${list}`)
     }
 
     //WordList
-
     static wordList = ([pattern]) => {
         fs.readFile("./words.txt", (err, data) => {
             if(err) throw err
