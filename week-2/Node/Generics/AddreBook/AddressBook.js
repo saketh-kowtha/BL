@@ -63,8 +63,13 @@ class AddressBoook{
     getAddresBooks(){
         let data = fs.readFileSync("./data.encrypt")
         data = data.toString()
-        if(data)
-            data = crypto.decrypt(data)
+        try{
+            if(data)
+                data = crypto.decrypt(data)
+        }
+        catch(ex){
+            console.log(ex)
+        }
         return JSON.parse(data || "{}")
     }
 

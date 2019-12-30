@@ -1,0 +1,1 @@
+module.exports.feetToInch = (x) => 12 * x
