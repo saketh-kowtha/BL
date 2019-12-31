@@ -1,0 +1,15 @@
+body{
+    background-color: #000000;
+}
+
+#header, #content{
+    margin: 10px 100px;
+}
+
+#header{
+    background-color: #FFF;
+}
+
+#content{
+
+}

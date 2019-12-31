@@ -1,11 +1,23 @@
+/**
+ * Print Calender based on user input passed with CMD args
+ */
+
 let args = process.argv.splice(2)
+
+let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+
+
+if(!args[0] || !args[1] )
+    return console.log("Invalid Arguments passed")
+
+if(isNaN(args[1]) || months.indexOf(args[0]))
+    return console.log("Arguments are not in proper formate Example : Jan 2019")
 
 let arr = [
     ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
     []
 ]
 
-let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
 
 let date = new Date(`${args[0]} ${args[1]}`)
 

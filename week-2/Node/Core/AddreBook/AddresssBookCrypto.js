@@ -1,6 +1,6 @@
 const crypto = require("crypto")
 
-const KEY = "SECRET_KEY_MAKE_IT_SECRET"
+const KEY = "SECRET_KEY_KEEP_IT_SECRET"
 
 //Method to Encrypt
 module.exports.encrypt = (text) =>{

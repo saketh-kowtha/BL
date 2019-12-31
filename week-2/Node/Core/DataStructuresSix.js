@@ -1,3 +1,6 @@
+/**
+ * Hash the words which are in a file uing OrderedList 
+ */
 const fs = require("fs")
 
 var stdin = process.openStdin();

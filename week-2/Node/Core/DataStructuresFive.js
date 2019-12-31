@@ -1,6 +1,6 @@
+//Pallidrome using Dequeue
+
 const fs = require("fs")
-
-
 
 
 const Dequeue = require("./Dequeue")

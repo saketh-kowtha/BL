@@ -1,5 +1,6 @@
 const UnOrderedList = require("./UnOrderedList")
 
+//Implementing Stack uing Linked List
 class StackList{
     
     constructor(){
@@ -27,7 +28,7 @@ class StackList{
     }
 }
 
-
+//Implementing Queue using Linked List
 class QueueList{
     
     constructor(){

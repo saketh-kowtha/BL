@@ -1,3 +1,5 @@
+//Checking Infix equation is balanced or not
+
 const fs = require("fs")
 
 var stdin = process.openStdin();

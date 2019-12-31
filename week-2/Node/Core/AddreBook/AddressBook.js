@@ -172,9 +172,8 @@ class AddressBoook{
             }
             else{
                 console.log(updatedContact.validate())
+                await this.editContact()
             }
-            
-            return
         }
         else{
             console.log("No Such Feild Try again")

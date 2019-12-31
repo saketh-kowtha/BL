@@ -15,6 +15,7 @@ class Util{
         // });
 
         // console.log(`Time Elapsed ${((new Date()).getTime() - TIME.getTime() )/ 1000} sec`)
+        this.constructor.wordList(["ab"])
     }
    
     //Anagram 

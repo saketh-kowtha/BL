@@ -1,3 +1,7 @@
+/**
+ * Prime Numbers between 1 - 1000 and dividing in an array by range 100
+ */
+
 let arr = []
 let j = -1
 for(let i = 0; i <= 1000; i++){
