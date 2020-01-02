@@ -28,6 +28,7 @@ class Doctor{
         console.log("\nDoctor Added Succefully\n")
     }
 
+
     static validate(doctor){
         if(!doctor)
             throw new HospitalError(VALIDATION_ERROR + " : Invalid Argument Passed")

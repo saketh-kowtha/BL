@@ -1,4 +1,5 @@
 const readline = require('readline');
+const { prompt } = require('enquirer');
 
 //Creating Sync STDIN
 const readlineInterface = readline.createInterface({
@@ -6,10 +7,12 @@ const readlineInterface = readline.createInterface({
     output: process.stdout
 });
 
-function stdin(questionText) {
-    return new Promise((resolve, reject) => {
-        readlineInterface.question(questionText, (input) => resolve(input) );       
-    });
+async function stdin(questionText) {
+    // return new Promise((resolve, reject) => {
+    //     readlineInterface.question(questionText, (input) => resolve(input) );       
+    // });
+
+    return await prompt(questionText)
 }
 
 module.exports = stdin

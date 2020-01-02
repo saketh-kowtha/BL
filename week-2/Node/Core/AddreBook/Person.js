@@ -15,6 +15,7 @@ class Person{
         this.zip = zip
         this.phoneNumber = phoneNumber
         this._id = crypto.genToken()
+        this.ts = new Date().getTime()
     }
 
     validate(){
@@ -30,7 +31,7 @@ class Person{
             return "Invalid State"
         else if(isNaN(this.zip))
             return "Invalid ZIP"
-        else if(this.phoneNumber.lenght != 10 && isNaN(this.phoneNumber))
+        else if(this.phoneNumber.length != 10 && isNaN(this.phoneNumber))
             return "Invalid Phone Number"
         return "OK"
     }

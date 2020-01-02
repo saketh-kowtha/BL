@@ -195,7 +195,8 @@ class AddressBoook{
     displayContacts(ele){
         if(!ele)
             ele=this.addressBook[this.currentAddressBookName]
-        console.table(ele)
+        const modified = JSON.parse(JSON.stringify(ele))
+        console.table(modified.map(e => { e.note = getTime(e.ts); delete e.ts;return e}))
     }
 
     //sortByName will sort address based on name
@@ -217,5 +218,19 @@ class AddressBoook{
     }
 
 }
+
+
+function getTime(ele){
+    var datePast = new Date(ele);
+    var dateNow = new Date();
+    
+    var seconds = Math.floor((dateNow - (datePast))/1000);
+    var minutes = Math.floor(seconds/60);
+    var hours = Math.floor(minutes/60);
+    var days = Math.floor(hours/24);
+    return `${days}Day ${hours - days * 24} Hours ${minutes - hours * 60} Minutes ${seconds - minutes * 60} Seconds` 
+}
+
+
 
 module.exports = AddressBoook

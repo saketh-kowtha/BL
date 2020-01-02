@@ -1,6 +1,8 @@
 const Patient = require('./Patient')
 const Doctor = require('./Doctor')
+const { Select } = require('enquirer');
 const stdin = require("./stdin")
+
 const { edit, search, deleteObj, writeToFile, readFromFile } = require("./helper")
 /**
  * 
@@ -23,11 +25,27 @@ class Hospital {
 
 
     async start() {
+        let menuChoices = ["Add Doctor", "Add Patient", "Edit Doctor", "Edit Patient", "Delete Doctor", "Delete Patient", "Search Doctor", "Search Patient", "Book Doctor Appoinment", "Print All Patients", "Print All Doctors", "Exit"]
+
         while (true) {
-            ["Add Doctor", "Add Patient", "Edit Doctor", "Edit Patient", "Delete Doctor", "Delete Patient", "Search Doctor", "Search Patient", "Book Doctor Appoinment", "Print All Patients", "Print All Doctors"].forEach((e, index) => console.log(`${index + 1}). ${e}.`))
-            console.log("*). Exit")
-            let userOpt = await stdin("Enter Your Choice : ")
-            switch (parseInt(userOpt)) {
+            const prompt = new Select({
+                name: 'choice',
+                message: 'Choose any one Operation',
+                choices: menuChoices
+              });
+              let userOpt = null
+              try{
+                await prompt.run()
+                menuChoices.forEach(e => {
+                    if(e.enabled == true)
+                        userOpt = e.index
+                })
+             }
+              catch(err){
+                  throw err
+              }
+
+            switch(parseInt(userOpt) + 1) {
                 case 1: await this.addDoctor()
                     break
                 case 2: await this.addPatient()
@@ -59,9 +77,24 @@ class Hospital {
 
     async addPatient() {
         let patient = {}
-        patient.name = await stdin("Enter Patient Name : ")
-        patient.mobileNumber = await stdin(`Enter ${patient.name}'s Number : `)
-        patient.age = await stdin(`Enter ${patient.name}'s Age : `)
+        patient = await stdin([
+            {
+              type: 'input',
+              name: 'name',
+              message: "Enter Your Name"
+            },
+            {
+                type: 'input',
+                name: 'mobileNumber',
+                message: "Enter Your Number"
+              },
+              {
+                type: 'input',
+                name: 'age',
+                message: "Enter Your Age"
+              },
+        ])
+
         try {
             const _patient = new Patient()
             if (Patient.validate(patient))
@@ -74,9 +107,23 @@ class Hospital {
 
     async addDoctor() {
         let doctor = {}
-        doctor.name = await stdin("Enter Doctor Name : ")
-        doctor.speclization = await stdin(`Enter ${doctor.name}'s Speclization : `)
-        doctor.avalibility = await stdin(`Enter ${doctor.name}'s Avalibility [format : HH:MM AM - HH:MM PM]: `)
+        doctor = await stdin([
+            {
+              type: 'input',
+              name: 'name',
+              message: "Enter Doctor Name : "
+            },
+            {
+                type: 'input',
+                name: 'speclization',
+                message: "Enter Doctor's Speclization : "
+              },
+              {
+                type: 'input',
+                name: 'avalibility',
+                message: "Enter Doctors's Avalibility [format : HH:MM AM - HH:MM PM]: "
+              },
+        ])
         try {
             const _doctor = new Doctor()
             if (Doctor.validate(doctor))
@@ -88,13 +135,26 @@ class Hospital {
     }
 
     async update(dataObj) {
-        const id = await stdin(`Enter ID : `)
+        const {id} = await stdin({
+            type: 'input',
+            name: 'id',
+            message: "Enter ID : "
+          })
         let searchResult = search(id, "id", dataObj)
         if (searchResult && searchResult.length > 0) {
             const feildNames = Object.keys(dataObj.data[0])
-            const feild = await stdin(`Enter Feild Name [${feildNames.join(",")}] : `)
+            const {feild} = await stdin({
+                type: 'input',
+                name: 'feild',
+                message: `Enter Feild Name [${feildNames.join(",")}] : `
+              })
+              console.log(feild)
             if (feildNames.indexOf(feild) > -1) {
-                const value = await stdin(`Enter ${feild} Value : `)
+                const {value} = await stdin({
+                    type: 'input',
+                    name: 'value',
+                    message: `Enter ${feild} value :  `
+                  })
                 try {
                     edit(id, value, feild, dataObj)
                 }
@@ -108,7 +168,11 @@ class Hospital {
     }
 
     async delete(obj) {
-        const id = await stdin(`Enter ID : `)
+        const {id} = await stdin({
+            type: 'input',
+            name: 'id',
+            message: "Enter ID : "
+          })
         let searchResult = search(id, "id", obj)
         if (searchResult && searchResult.length > 0) {
             deleteObj(id, obj)
@@ -120,9 +184,17 @@ class Hospital {
 
     async search(obj) {
         const feildNames = Object.keys(obj.data[0])
-        const feild = await stdin(`Enter Feild Name [${feildNames.join(",")}] : `)
+        const {feild} = await stdin({
+            type: 'input',
+            name: 'feild',
+            message: `Enter Feild Name [${feildNames.join(",")}] : `
+          })
         if (feildNames.indexOf(feild) > -1) {
-            const value = await stdin(`Enter ${feild} Value : `)
+            const {value} = await stdin({
+                type: 'input',
+                name: 'value',
+                message: `Enter ${feild} value :  `
+              })
             try {
                 console.table(search(value, feild, obj))
             }
@@ -135,13 +207,29 @@ class Hospital {
     }
 
     async bookAppoinment() {
-        let patientId = await stdin("Enter Patient ID : ")
+
+        let {patientId, doctorId, time} = await stdin([
+            {
+              type: 'input',
+              name: 'patientId',
+              message: "Enter Patient ID : "
+            },
+            {
+                type: 'input',
+                name: 'doctorId',
+                message: "Enter Doctor's ID : "
+              },
+              {
+                type: 'input',
+                name: 'time',
+                message: "Enter Time [HH:MM AM|PM]: "
+              },
+        ])
+
         if (!patientId || search(patientId, "id", Patient).length == 0)
             return console.log("No Patient With that ID")
-        let doctorId = await stdin("Enter Doctor ID : ")
         if (!doctorId || search(doctorId, "id", Doctor).length == 0)
             return console.log("No Doctor With that ID")
-        let time = await stdin("Enter Time : ")
         if (!time || !time.match(/^([0-9]{1,2}):([0-9]{2}) (AM|PM)$/))
             return console.log("Invalid Time")
         time = time.split(" ").map(e => e.trim())
@@ -195,7 +283,7 @@ class Hospital {
 
     printAppoinment(patientId, doctorName, timeSlot, time) {
         timeSlot = timeSlot.split(" ").slice(1)
-        console.log(`\n\nHello ${search(patientId, "id", Patient)[0].name} Your Appoinment is booked on ${timeSlot.join("-")} at ${parseInt(time / 100)}:${time % 100}\n\n`)
+        console.log(`\n\nHello ${search(patientId, "id", Patient)[0].name} Your Appoinment is booked on ${timeSlot.join("-")} at ${parseInt(time / 100)}:${(time % 100  > 9 ? "": "0") + time % 100}\n\n`)
     }
 
     printAll(obj) {

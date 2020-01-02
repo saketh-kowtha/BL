@@ -1,0 +1,103 @@
+#content{
+    padding: 20px 200px;
+}
+
+#content .stats{
+    display: flex;
+    margin-bottom: 20px;
+}
+
+#content .stats .stat-element{
+    margin: 0px;
+    width: calc((100%)/4);
+    background-color: white;
+    text-align: center !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    padding: 20px;
+    border: 0.1px solid rgb(221, 221, 221);
+}
+
+.stats-icon{
+    color: #4E4DE8;
+    font-size: 34px !important;
+}
+
+.stat-element div span:nth-child(1){
+    font-size: 10px;
+    font-weight: bold;
+    color: #4E4DE8;
+}
+
+.stat-element div span:nth-child(2){
+    font-size: 18px;
+    color: #121241;
+}
+
+.graphs{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.graphs .graph-element:not(:first-child):not(:last-child){
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.graphs .graph-element{
+    height: 300px;
+    padding: 20px;
+    text-align: center;
+    background-color: white;
+    width: calc((100% - 60px)/3);
+    border: 0.1px solid rgb(221, 221, 221);
+}
+
+@media only screen and (min-width: 760px) and (max-width: 1024px) {
+    #content{
+        padding: 20px;
+    }
+
+    #content .stats{
+        width: 100%;
+        flex-wrap: nowrap;
+    }
+
+    #content .stats .stat-element{
+        padding: 20px 10px;
+        width: calc((100%-0px)/4);
+    }
+}
+
+.graphs .graph-element div span:first-child{
+    color: #121241;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.graphs .graphs div span:last-child{
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+
+@media only screen and (max-width: 760px) {
+    #content{
+        padding: 5px;
+    }
+
+    #content .stats{
+        width: 100%;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+
+    #content .stats .stat-element{
+        padding: 20px 10px;
+        width: calc((100% - 42px)/2);
+    }
+}
