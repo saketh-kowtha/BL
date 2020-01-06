@@ -38,10 +38,6 @@
         display: none;
     }
 
-    .userSelections .badge{
-        margin-left: -15px !important;
-    }
-
     .searchContainer{display: none;}   
 }
 
