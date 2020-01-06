@@ -43,9 +43,19 @@
 
 @media only screen and (min-width: 760px) and (max-width: 1024px) {
     .navMenu{
-        display: flex;
-        justify-content: space-evenly;
+        display: none;
       }
+      .dropdown{
+          display: inline;
+      }
+
+      #header{
+        height: 35px;
+        padding: 5px;
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        background-color: white;
+    }
+
     .navMenu button {
       border: none; 
       position: relative;
