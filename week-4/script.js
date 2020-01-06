@@ -45,7 +45,7 @@ $(document).ready(function() {
         color: "#4E4DE8",
         data: [1,2,3,1, 1,2, 0.5]
     }]
-    $('#container').highcharts(json);
+    $('#current-chart').highcharts(json);
 
 
 

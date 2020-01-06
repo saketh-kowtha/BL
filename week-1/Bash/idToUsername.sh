@@ -1,3 +1,4 @@
+$a
 read -p "Enter Id : " id
 
 case $id in

@@ -1,5 +1,5 @@
 /* DOCUMENT INFORMATION
-	- Document: Header Common Stylesheet
+	- Document: Header Common Layout Stylesheet
 	- Author:   Kowtha Saketh   
 */
 
@@ -58,8 +58,8 @@
   
 .userSelections .badge {
 	position: absolute;
-	margin-left: -12px;
-	margin-top: 0px;
+	margin-left: 10px;
+	top: 10px;
 	padding: 2.5px 5px;
 	border-radius: 50%;
 	background-color: rgb(223, 53, 81);
@@ -71,7 +71,7 @@
 	object-fit: cover;
 		border-radius: 50px;
 }
-.userSelections .button-group{
+.userSelections .navMenu{
 	display: flex;
 }
 
@@ -122,7 +122,7 @@
 }
 
 
-#header > .row:nth-child(2) .button-group button {
+#header > .row:nth-child(2) .navMenu button {
   border: none; 
   position: relative;
   background-color: #F9FAFC;
@@ -136,7 +136,7 @@
 }
   
   
-#header > .row:nth-child(2) .button-group button:hover {
+#header > .row:nth-child(2) .navMenu button:hover {
   background-image: linear-gradient(to right, #4E4DE8, #7B4EFC) !important; 
   color: white;
 }

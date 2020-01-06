@@ -1,11 +1,15 @@
+/* DOCUMENT INFORMATION
+	- Document: stats Module Style Sheet
+	- Author:   Kowtha Saketh   
+*/
 /* Stats style Starts  */
 
-#content > .stats{
+#article > .stats{
     display: flex;
     margin-bottom: 20px;
 }
 
-#content > .stats > .stat-element{
+#article > .stats > .stat-element{
     margin: 0px;
     width: calc((100%)/4);
     background-color: white;
@@ -35,11 +39,6 @@
 .graph-element > div > div{
     display: flex;
     justify-content: space-around;
-}
-
-.border{
-    border-color: rgb(221, 221, 221);
-    border-width: .6px;
 }
 
 .stat-element div span:nth-child(1){

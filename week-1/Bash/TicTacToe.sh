@@ -206,7 +206,7 @@ isGameOver(){
         ((count++))
     fi
 
-    if [ count -eq 8 ]
+    if [ $count -eq 8 ]
     then
         echo false
     fi

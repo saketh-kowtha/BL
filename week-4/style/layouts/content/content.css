@@ -1,22 +1,33 @@
+/* DOCUMENT INFORMATION
+	- Document: Article Style Sheet
+	- Author:   Kowtha Saketh   
+*/
+
 @import './modules/stats.css';
 @import './modules/graphs.css';
 @import './modules/table.css';
+@import './modules/current_updates.css';
+@import './modules/manage_tickets.css';
 
-#content{
+#article{
     padding: 20px 200px;
 }
 
 
-
 .highcharts-plot-border {
     margin: 0px !important;
-    pdding: 0px !important;
+    padding: 0px !important;
 
 }
 .highcharts-credits{
     display: none;
 }
 
+
+.border{
+    border-color: rgb(221, 221, 221);
+    border-width: .6px;
+}
 
 
 .button{
@@ -38,95 +49,6 @@
 }
 
 
-.current-updates-container{
-    margin-top: 20px;
-    display: flex;
-    justify-content: space-between;
-}
-
-.current-updates-container > div{
-    width: calc(50% - 30px);
-    background-color: white;
-    border: 1px solid #d6d6d6;
-}
-.current-updates-container > div:first-child {
-    display: flex;
-    flex-direction: column;
-}
-
-.current-updates , .current-chart > div{
-    padding: 20px;
-}
-.current-chart > div:first-child{
-    border-bottom: 2px solid #d6d6d6;
-}
-
-.current-updates-container .graph-element h5{
-    color: grey;
-    line-height: 2px;
-
-}
-
-.current-updates-container .graph-element h2{
-    line-height: 2px;
-    color: #121241;
-}
-
-.heading{
-    color: #121241;
-    font-weight: 600;
-    font-size: 14px;
-    line-height: 14px;
-}
-
-.node > div > label::before{
-    font-family: "Material Icons";
-    content: "\e192";
-    font-size: 14px;
-    margin-top: 2px !important;
-}
-
-.node > div > label {
-    color: grey;
-    font-size: 12px;
-}
-
-.node {
-    height: 10px;
-    width: 10px;
-    border-radius: 50%;
-    transition: all 1000ms ease;
-    border: 2px solid #464de4;
-    background-color: #d5dcec;
-}
-
-.node > div {
-    position: absolute;  
-    left: 45px;
-    margin-top: -20px;
-}
-
-.node > div > div,  .node > div > label{
-    margin-bottom: 20px;
-}
-
-.vdivider {
-    height: 80px;
-    width: 2px;
-    margin-left: 6px;
-    transition: all 800ms ease;
-    background-color: #d5dcec;
-}
-
-.progress{
-    padding: 0px;
-}
-
-.progress  li {
-    list-style: none;
-    line-height: 1px;
-}
-
 .manageTickets{
     width: 100%;
     background-color: white;
@@ -136,7 +58,7 @@
 
 /*Mobiles*/
 @media only screen and (max-width: 760px) {
-    #content{
+    #article{
         padding: 5px;
     }
 
@@ -149,7 +71,7 @@
         margin-right: 0px !important;
     }
 
-    #content > .stats{
+    #article > .stats{
         width: 100%;
         justify-content: space-around;
         flex-wrap: wrap;
@@ -176,19 +98,42 @@
         padding: 10px !important;
     }
 
-    #content > .stats > .stat-element{
+    #article > .stats > .stat-element{
         padding: 20px 10px;
         width: calc((100% - 42px)/2);
+    }
+
+    .manage-tickets > .ticket{
+        padding: 20px 0px;
+        display: flex ;
+        flex-direction: column !important;
+    }
+
+    .manage-tickets  > .ticket > div{
+        margin: 0px auto;
+    }
+
+    .ticket > div > p{
+        text-align: center;
+        line-height: normal;
+    }
+
+    .ticket > div > div:last-child{
+        float: right;
+    }
+
+    .ticket > div{
+        padding: 5px;
     }
 }
 
 /*Tablets*/
 @media only screen and (min-width: 760px) and (max-width: 1024px) {
-    #content{
+    #article{
         padding: 20px;
     }
 
-    #content > .stats{
+    #article > .stats{
         width: 100%;
         flex-wrap: nowrap;
         text-align: center;
@@ -199,10 +144,10 @@
         margin-right: 10px;
     }
 
-  
-
-    #content > .stats > .stat-element{
+    #article > .stats > .stat-element{
         padding: 20px 10px;
         width: calc(100% - 20px);
     }
+
+
 }

@@ -1,5 +1,5 @@
 /* DOCUMENT INFORMATION
-	- Document: Header Mobile Stylesheet
+	- Document: Header Mobile Layout Stylesheet
 	- Author:   Kowtha Saketh   
 */
 
@@ -34,19 +34,23 @@
         padding: 5px;
     }
 
-    .button-group{
+    .navMenu{
         display: none;
+    }
+
+    .userSelections .badge{
+        margin-left: -15px !important;
     }
 
     .searchContainer{display: none;}   
 }
 
 @media only screen and (min-width: 760px) and (max-width: 1024px) {
-    .button-group{
+    .navMenu{
         display: flex;
         justify-content: space-evenly;
       }
-    .button-group button {
+    .navMenu button {
       border: none; 
       position: relative;
       background-color: #F9FAFC;

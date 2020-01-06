@@ -1,4 +1,3 @@
-#!/bin/bash -x
 function gambling(){
     amount=100.0
 
