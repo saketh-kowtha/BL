@@ -1,0 +1,22 @@
+/* DOCUMENT INFORMATION
+	- Document: Root Style Sheet
+	- Author:   Kowtha Saketh   
+*/
+
+@import "./layouts/header/header.css";
+@import "./layouts/header/header_mobile.css";
+
+
+@import "./layouts//content/content.css";
+
+
+body{
+    background-color: #ECEEF2;
+    margin: 0;
+}
+  
+*{
+    font-family: 'Roboto', sans-serif;
+}
+
+

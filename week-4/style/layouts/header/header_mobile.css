@@ -1,0 +1,64 @@
+/* DOCUMENT INFORMATION
+	- Document: Header Mobile Stylesheet
+	- Author:   Kowtha Saketh   
+*/
+
+@media only screen and (max-width: 760px) {
+  
+    #header{
+        height: 35px;
+        padding: 5px;
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        background-color: white;
+    }
+
+    #header > div > div > div{
+        margin-left: 10px;
+        margin-right: 0px;
+    }
+
+    #header > .row{
+      padding: 5px;
+      height: 30px;
+    }  
+
+    .dropdown{
+        display: inline;
+    }
+
+    .userActions > .navIcon{
+        display: none;
+    }
+
+    .navIcon{
+        padding: 5px;
+    }
+
+    .button-group{
+        display: none;
+    }
+
+    .searchContainer{display: none;}   
+}
+
+@media only screen and (min-width: 760px) and (max-width: 1024px) {
+    .button-group{
+        display: flex;
+        justify-content: space-evenly;
+      }
+    .button-group button {
+      border: none; 
+      position: relative;
+      background-color: #F9FAFC;
+      color: #121241;
+      padding: 12px 35px; 
+      cursor: pointer; 
+      font-weight: 550;
+      float: left;   
+      text-transform: uppercase;
+  }
+   .searchContainer{display: none;}
+    #header{
+        padding: 10px 20px;
+    }
+}

@@ -1,0 +1,208 @@
+@import './modules/stats.css';
+@import './modules/graphs.css';
+@import './modules/table.css';
+
+#content{
+    padding: 20px 200px;
+}
+
+
+
+.highcharts-plot-border {
+    margin: 0px !important;
+    pdding: 0px !important;
+
+}
+.highcharts-credits{
+    display: none;
+}
+
+
+
+.button{
+    padding: 5px 10px;
+    color: white;
+    border: 2px solid #4e4DE8;
+    background-color: #4E4DE8;
+    /* border: none; */
+    border-radius: 4px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    outline: none;
+    cursor: pointer;
+}
+
+.button:active{
+    border: 2px solid rgb(111, 111, 219);
+    transition: .2s;
+}
+
+
+.current-updates-container{
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.current-updates-container > div{
+    width: calc(50% - 30px);
+    background-color: white;
+    border: 1px solid #d6d6d6;
+}
+.current-updates-container > div:first-child {
+    display: flex;
+    flex-direction: column;
+}
+
+.current-updates , .current-chart > div{
+    padding: 20px;
+}
+.current-chart > div:first-child{
+    border-bottom: 2px solid #d6d6d6;
+}
+
+.current-updates-container .graph-element h5{
+    color: grey;
+    line-height: 2px;
+
+}
+
+.current-updates-container .graph-element h2{
+    line-height: 2px;
+    color: #121241;
+}
+
+.heading{
+    color: #121241;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 14px;
+}
+
+.node > div > label::before{
+    font-family: "Material Icons";
+    content: "\e192";
+    font-size: 14px;
+    margin-top: 2px !important;
+}
+
+.node > div > label {
+    color: grey;
+    font-size: 12px;
+}
+
+.node {
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    transition: all 1000ms ease;
+    border: 2px solid #464de4;
+    background-color: #d5dcec;
+}
+
+.node > div {
+    position: absolute;  
+    left: 45px;
+    margin-top: -20px;
+}
+
+.node > div > div,  .node > div > label{
+    margin-bottom: 20px;
+}
+
+.vdivider {
+    height: 80px;
+    width: 2px;
+    margin-left: 6px;
+    transition: all 800ms ease;
+    background-color: #d5dcec;
+}
+
+.progress{
+    padding: 0px;
+}
+
+.progress  li {
+    list-style: none;
+    line-height: 1px;
+}
+
+.manageTickets{
+    width: 100%;
+    background-color: white;
+    border: 1px solid #d6d6d6;
+    margin-top: 20px;
+}
+
+/*Mobiles*/
+@media only screen and (max-width: 760px) {
+    #content{
+        padding: 5px;
+    }
+
+    .graph-element{
+        width: 100% !important;
+    }
+
+    .graph-element:not(:first-child):not(:last-child){
+        margin-left: 0px !important;
+        margin-right: 0px !important;
+    }
+
+    #content > .stats{
+        width: 100%;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+
+    .graphs{
+        flex-wrap: wrap;
+    }
+
+    .current-updates-container{
+        flex-direction: column;
+    }
+
+
+    .current-chart {
+        width: calc(100%) !important;
+    }
+    
+    .current-updates {
+        width: calc(100% - 40px) !important;
+    }
+
+    .current-updates > div{
+        padding: 10px !important;
+    }
+
+    #content > .stats > .stat-element{
+        padding: 20px 10px;
+        width: calc((100% - 42px)/2);
+    }
+}
+
+/*Tablets*/
+@media only screen and (min-width: 760px) and (max-width: 1024px) {
+    #content{
+        padding: 20px;
+    }
+
+    #content > .stats{
+        width: 100%;
+        flex-wrap: nowrap;
+        text-align: center;
+    }
+
+    .graphs > .graph-element:not(:first-child):not(:last-child){
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+  
+
+    #content > .stats > .stat-element{
+        padding: 20px 10px;
+        width: calc(100% - 20px);
+    }
+}

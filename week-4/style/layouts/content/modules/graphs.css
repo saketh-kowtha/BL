@@ -1,0 +1,105 @@
+/* Graph Section */
+
+.graphs{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.graphs > .graph-element:not(:first-child):not(:last-child){
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.graphs > .graph-element{
+    min-height: 380px;
+    height: fit-content;
+    padding: 20px 20px 0px 20px;
+    text-align: center;
+    background-color: white;
+    width: calc((100% - 60px)/3);
+    border: 0.1px solid rgb(221, 221, 221);
+}
+
+.graphs > .graph-element:nth-child(2){
+    text-align: left;
+}
+
+#area_chart{
+    width: 100%;
+    height: 180px;
+}
+
+#line_chart{
+    width:100%;
+    height: 280px;
+}
+
+.graph-element > img{
+    border-radius: 100%;
+    object-fit: cover;
+}
+
+.graph-element:nth-child(2) > h5, .graphs > .graph-element:nth-child(2) > h2{
+    line-height: 2px;
+}
+
+
+.graph-element:nth-child(2) > h5{
+    color: gray;
+}
+
+.graph-element:nth-child(2) > h2{
+    color: #121241;
+}
+
+.graph-element:nth-child(2) > label{
+    color: #121241;
+    font-size: 12px;
+    display: block;
+    padding-bottom: 10px;
+}
+
+
+.graph-element div span:first-child{
+    color: #121241;
+    display: block;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.graph-element div span:nth-child(2){
+    font-size: 12px;
+    display: block;
+    color: gray;
+}
+
+.graph-element > div >  p{
+    display: block;
+    font-size: 12px;
+    color: #121241;
+    margin: 25px 0px;
+    display: -webkit-box;
+    max-width: 100%;
+    height: 44px;
+    font-size: 12px;
+    overflow: hidden;
+}
+
+.graphs > .graph-element > div >  p:hover{
+    overflow-y: auto;
+}
+
+.info-group div p:first-child{
+    color: #121241;
+    font-weight: bold;
+    line-height: 1px;
+    font-size: 14px;
+}
+
+.info-group div p:nth-child(2){
+    color: #121241;
+    font-size: 12px;
+}
+
+/* Graph Section Ends here */

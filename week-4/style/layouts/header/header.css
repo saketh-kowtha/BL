@@ -1,0 +1,146 @@
+/* DOCUMENT INFORMATION
+	- Document: Header Common Stylesheet
+	- Author:   Kowtha Saketh   
+*/
+
+
+/* Header Layout Component */
+#header{
+  height: 85px;
+  padding: 10px 200px;
+  box-shadow: 0 4px 8px 0 rgba(199, 199, 199, 0.2);
+  background-color: white;
+}
+
+/* Header First row (Logo and User action area) */
+#header > .row:nth-child(1){
+	display: flex;
+	justify-content: space-between;    
+}
+
+#header .searchContainer input[type='search']{
+	background-color: #F9FAFC;
+	border-radius: 50px;
+	border: none;
+	font-size: 16px;
+	padding: 6px;
+	padding-left: 30px;
+	width: 200px;
+	outline: none;
+}
+
+.navIcon {
+	padding: 8px 0px;
+	color: gray;
+	font-size: 20px !important;
+	position: relative;
+	text-align: center;  
+}
+  
+.searchContainer > .navIcon{
+	position: absolute;
+	top: 10px;
+	margin-left: 8px;
+	font-size: 16px !important;
+}
+
+
+.userSelections{
+	display: flex;
+	justify-content: space-between;    
+}
+   
+.userActions > .navIcon{
+	position: absolute;
+	margin-bottom: -10px;
+	margin-left: 8px;
+}
+  
+.userSelections .badge {
+	position: absolute;
+	margin-left: -12px;
+	margin-top: 0px;
+	padding: 2.5px 5px;
+	border-radius: 50%;
+	background-color: rgb(223, 53, 81);
+	color: white;
+	font-size: 10px;
+}
+  
+.userActions > img{
+	object-fit: cover;
+		border-radius: 50px;
+}
+.userSelections .button-group{
+	display: flex;
+}
+
+
+.dropdown {
+	position: relative;
+	display: none;
+}
+	
+.dropdown > .dropdown-content {
+	display: none;
+	position: absolute;
+	right: 0;
+	background-color: #f9f9f9;
+	min-width: 160px;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	padding: 12px 16px;
+	z-index: 1;
+}
+	
+.dropdown > .dropdown-content > a {
+	color: black;
+	padding: 12px 16px;
+	text-decoration: none;
+	display: block;
+}
+  
+.dropdown:hover .dropdown-content {
+	display: block;
+}
+
+/* Header Second row (Navmenu) */
+#header > .row:nth-child(2){
+  margin-top: 10px;
+}
+
+.menuIcon{
+  font-size: 14px !important;
+  position: absolute;
+  top: 12.5px;
+  left: 20px;
+}
+
+
+
+#header > div > div > div{
+  margin-right: 25px;
+}
+
+
+#header > .row:nth-child(2) .button-group button {
+  border: none; 
+  position: relative;
+  background-color: #F9FAFC;
+  color: #121241;
+  padding: 12px 52px; 
+  cursor: pointer; 
+  font-weight: 550;
+  width: calc(100%/6);
+  float: left;   
+  text-transform: uppercase;
+}
+  
+  
+#header > .row:nth-child(2) .button-group button:hover {
+  background-image: linear-gradient(to right, #4E4DE8, #7B4EFC) !important; 
+  color: white;
+}
+
+
+
+

@@ -1,0 +1,47 @@
+.table-container{
+    width: 100%;
+    overflow: auto;
+}
+
+.table{
+    margin-top: 20px;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table  tr > th, .table  tr > td {
+    text-align: center;
+    min-width: 30px;
+    padding: 20px;
+    color: #121241;
+    font-size: 12px;
+}
+
+.table  tr > td {
+    color: gray;
+}
+
+.table  tr > td:first-child::before{
+    content: "#";
+}
+
+.table  tr:nth-child(6)::before{
+    content: "$";
+}
+
+.table  tr{
+    background-color: white;
+    border: 1px solid #d6d6d6;
+}
+
+.table  tr:first-child{
+    background-color: #f3f5f6;
+    border: 1px inset white;
+}
+
+.tag{
+    color: white;
+    font-size: 10px;
+    border-radius: 5px;
+    padding: 5px;
+}

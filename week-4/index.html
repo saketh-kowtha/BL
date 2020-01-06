@@ -1,23 +1,32 @@
-<html>
+<!DOCTYPE html>
+<html lang="en-US">
     <head>
         <title>Dashboard</title>
+        <meta charset="UTF-8">
+        <meta name="description" content="Liberty UI Dahboard">
+        <meta name="keywords" content="LibertyUi, Dashboard">
+        <meta name="author" content="Kowtha Saketh">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="./style.css" rel="stylesheet" type="text/css">
-        <script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
-        <script src="./script.js"></script>
-        <script src = "https://code.highcharts.com/highcharts.js"></script> 
+        <!-- Importing Stylesheets -->
         <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
-
+        <link href="./style/style.css" rel="stylesheet" type="text/css">
+        
+        <!-- Importing Scripts -->
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script type="text/javascript" src="https://code.highcharts.com/highcharts.js"></script> 
+        <script type="text/javascript" src="./script.js"></script>
     </head>
     <body>
+        <!-- Header Section Begins-->
        <div id="header">
+           <!-- Header first row-->
            <div class="row">
                 <div>
                     <img src = "./assests/logo.png" />
                 </div>
-                <div class="userActions">
+                <div class="userSelections">
                     <div class="searchContainer">
                         <i class="material-icons-outlined navIcon" >search</i>
                         <input type="search" />
@@ -26,16 +35,28 @@
                         <i class="material-icons-outlined navIcon">notifications</i>
                         <span class="badge">4</span>
                     </div>
-                    <div class="user">
-                        <img src="assests/profile.jpg" width="30px" height="30px" style="object-fit: cover;border-radius: 50px;"/>
+                    <div class="userActions">
+                        <img src="assests/profile.jpg" width="30px" height="30px" />
                         <i class="material-icons-outlined navIcon" >arrow_drop_down</i>
                     </div>
-                    <div class="toggle">
+                    <!-- DropDown only Displays in Mobile Phones -->
+                    <div class="dropdown">
                         <i class="material-icons-outlined navIcon">more_vert</i>
+                        <div class="dropdown-content">
+                            <a href="#">Dashboard</a>
+                            <a href="#">Widgets</a>
+                            <a href="#">Uielements</a>
+                            <a href="#">Pages</a>
+                            <a href="#">Forms</a>
+                            <a href="#">Apps</a>
+                        </div>
                     </div>
                 </div>
            </div>
+           <!-- Header first row ends -->
+           <!-- Header second row i.e Navigation menu -->
 
+           <!-- Content Starts here -->
            <div class="row">
                 <div class="button-group">
                     <button><i class="material-icons-outlined menuIcon">airplay</i>Dashboard</button>
@@ -46,59 +67,62 @@
                     <button><i class="material-icons-outlined menuIcon">ac_units</i>apps</button>
                 </div>
            </div>
+           <!-- Header second row ends -->
        </div>
+       <!-- Header Section ENDS -->
        <div id="content">
+           <!-- Stats Container -->
             <div class="stats">
                 <div class="stat-element">
-                    <div style="margin-top: 10px;">
+                    <div>
                         <i class="material-icons-outlined stats-icon">people</i>
                     </div>
-                    <div style="margin-left: 25px">
+                    <div>
                         <span>New Users</span>
                         <span ><br>65,620</span>
                     </div>
                 </div>
                 <div class="stat-element">
-                    <div style="margin-top: 10px;">
+                    <div>
                         <i class="material-icons-outlined stats-icon">check_circle_outline</i>
                     </div>
-                    <div style="margin-left: 25px">
+                    <div>
                         <span>New Feedbacks</span>
                         <span ><br>32,604</span>
                     </div>
                 </div>
                 <div class="stat-element">
-                    <div style="margin-top: 10px;">
+                    <div>
                         <i class="material-icons-outlined stats-icon">emoji_events</i>
                     </div>
-                    <div style="margin-left: 25px">
+                    <div>
                         <span>Employees</span>
                         <span ><br>17,583</span>
                     </div>
                 </div>
                 <div class="stat-element">
-                    <div style="margin-top: 10px;">
+                    <div>
                         <i class="material-icons-outlined stats-icon">gps_fixed</i>
                     </div>
-                    <div style="margin-left: 25px">
+                    <div>
                         <span>Total Sales</span>
                         <span ><br>61,119</span>
                     </div>
                 </div>
             </div>
-
-            <div class="graphs hideme">
+            <!-- Stats container ends here -->
+            <div class="graphs">
                 <div class="graph-element">
-                    <img src="assests/dev.jpg" style="border-radius: 100%;object-fit: cover;" width="80px" height="80px"/>
+                    <img src="assests/dev.jpg" width="80px" height="80px"/>
                     <div>
                         <span>Maria Johnson</span>
                         <span><br>Developer</span>
                         <p>
                                 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum Lorem 
                         </p>
-                        <button class="followBtn">Follow</button>
+                        <button class="button">Follow</button>
                         <hr class="border"/>
-                        <div class="graph-element-footer">
+                        <div class="info-group">
                                 <div>
                                     <p>5896</p>
                                     <p>Post</p>
@@ -123,12 +147,12 @@
                     <h5>Support Cases</h5>
                     <h2>323,360</h2>
                     <label>2.5%change from yestrday</label>
-                    <div id="area_chart" style="width: 100%;height: 180px;"></div>
+                    <div id="area_chart"></div>
                 </div>
 
                 
                 <div class="graph-element">
-                    <div class="graph-element-footer">
+                    <div class="info-group">
                         <div>
                             <div>
                                 <p>6256</p>
@@ -139,7 +163,7 @@
                                 <span>Open Campaign</span>
                             </div>
                         </div>
-                        <div id="line_chart" style="width:100%;height: 280px;"></div>
+                        <div id="line_chart" ></div>
                         <div>
                             <div>
                                 <p>5136</p>
@@ -151,6 +175,154 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+
+            <div class="table-container">
+                <table class="table">
+                    <tr>
+                        <th>ID</th>
+                        <th>Assignee</th>
+                        <th>Task Details</th>
+                        <th>Payment Method</th>
+                        <th>Payment Status</th>
+                        <th>Amount</th>
+                        <th>Tracking Number</th>
+                    </tr>
+                    <tr>
+                        <td>320</td>
+                        <td>Mark C Diaz</td>
+                        <td>Support of theme</td>
+                        <td>Credit card</td>
+                        <td><span class="tag">Approved</span></td>
+                        <td>$12,245</td>
+                        <td>JPBBN435893458</td>
+                    </tr>
+                    <tr>
+                        <td>321</td>
+                        <td>Jose D</td>
+                        <td>Verify your email account</td>
+                        <td>Internet Banking</td>
+                        <td><span class="tag">Pending</span></td>
+                        <td>$12,245</td>
+                        <td>JPBBN435893458</td>
+                    </tr>
+                    <tr>
+                        <td>322</td>
+                        <td>Philips T</td>
+                        <td>Item suppport message send</td>
+                        <td>Credit card</td>
+                        <td><span class="tag">Approved</span></td>
+                        <td>$12,245</td>
+                        <td>JPBBN435893458</td>
+                    </tr>
+                    <tr>
+                        <td>323</td>
+                        <td>Luke Pixel</td>
+                        <td>New submission on website</td>
+                        <td>Cash on Delivery</td>
+                        <td><span class="tag">Rejected</span></td>
+                        <td>$12,245</td>
+                        <td>JPBBN435893458</td>
+                    </tr>
+                </table>
+            </div>
+           
+            <div class="current-updates-container">
+                <div class="current-chart">
+                   <div >
+                        <div class="heading">The Current Chart</div> 
+                        <div id="container" style="height: 200px"></div>
+                   </div>
+                   <div>
+                        <div class="graph-element">
+                            <h5>Project Status</h5>
+                            <h2>76, 522 <small>PCS</small></h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="current-updates" style="position: relative;">
+                    <div class="heading">Updates</div>  
+                    <ul class="progress">
+                        <li><div class="node">
+                            <div>
+                                <p class="heading">User Confirmation</p>
+                                <p class="heading" style="font-size: 12px">Donec ruturm congue leo egetmalesuada</p>
+                                <label>7 Months ago</label>
+                            </div>
+                        </div></li>
+                        <li><div class="vdivider"></div></li>
+                        <li><div class="node">
+                            <div>
+                                <p class="heading">User Confirmation</p>
+                                <p class="heading" style="font-size: 12px">Vivamus sucript tortor eget feils porttitor volupotor</p>
+                                <label>7 Months ago</label>
+                            </div>
+                        </div></li>
+                        <li><div class="vdivider"></div></li>
+                        <li><div class="node">
+                                <div>
+                                        <p class="heading">User Confirmation</p>
+                                        <p class="heading" style="font-size: 12px">Curabitor non nulla sit a met neisl tempus convillas quis ac lectus</p>
+                                        <label>7 Months ago</label>
+                                    </div>
+                        </div</li>
+                        <li><div class="vdivider"></div></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="manageTickets" >
+                <div style="margin-right: 100px;padding: 20px;">
+                    <p class="heading">Manage Tickets</p>
+                    <div style="display: flex;">
+                        <div>
+                            <img src="./assests/dev.jpg" style="border-radius: 100%;object-fit: cover;" width="80px" height="80px"/>
+                        </div>
+                        <div style="flex-grow: 3;padding-left: 50px;">
+                            <p class="heading" style="font-weight: 300;"><b>James</b> : [#23047] Decotlon epsum text goes here in a line</p>
+                            <p class="heading" style="font-size: 12px;font-weight: 300;color: gray">Curabitor non nulla sit a met neisl tempus convillas quis ac lectus</p>
+                            <label style="font-size: 10px;color: gray;">Last Responded : 3 hours ago</label>
+                            <label style="font-size: 10px;color: gray;margin-left: 100px">Due in : 2 days</label>
+                        </div>
+                        <div>
+                            <button class="button">Manage</button>
+                        </div>
+                    </div>
+
+                <hr class="divider"/>
+
+                    <div style="display: flex;">
+                            <div>
+                                <img src="./assests/dev.jpg" style="border-radius: 100%;object-fit: cover;" width="80px" height="80px"/>
+                            </div>
+                            <div style="flex-grow: 3;padding-left: 50px;">
+                                <p class="heading" style="font-weight: 300;"><b>James</b> : [#23047] Decotlon epsum text goes here in a line</p>
+                                <p class="heading" style="font-size: 12px;font-weight: 300;color: gray">Curabitor non nulla sit a met neisl tempus convillas quis ac lectus</p>
+                                <label style="font-size: 10px;color: gray;">Last Responded : 3 hours ago</label>
+                                <label style="font-size: 10px;color: gray;margin-left: 100px">Due in : 2 days</label>
+                            </div>
+                            <div>
+                                <button class="button">Manage</button>
+                            </div>
+                        </div>
+
+                <hr class="divider" />
+
+                        <div style="display: flex;">
+                                <div>
+                                    <img src="./assests/dev.jpg" style="border-radius: 100%;object-fit: cover;" width="80px" height="80px"/>
+                                </div>
+                                <div style="flex-grow: 3;padding-left: 50px;">
+                                    <p class="heading" style="font-weight: 300;"><b>James</b> : [#23047] Decotlon epsum text goes here in a line</p>
+                                    <p class="heading" style="font-size: 12px;font-weight: 300;color: gray">Curabitor non nulla sit a met neisl tempus convillas quis ac lectus</p>
+                                    <label style="font-size: 10px;color: gray;">Last Responded : 3 hours ago</label>
+                                    <label style="font-size: 10px;color: gray;margin-left: 100px">Due in : 2 days</label>
+                                </div>
+                                <div>
+                                    <button class="button">Manage</button>
+                                </div>
+                            </div>
                 </div>
             </div>
        </div>

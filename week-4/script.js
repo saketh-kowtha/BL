@@ -1,6 +1,5 @@
 $(document).ready(function() {
 
-
     var json = {};
     json.chart= {
         type: 'area',
@@ -32,16 +31,30 @@ $(document).ready(function() {
 
     
     $('#area_chart').highcharts(json);
+
     json.chart.type = "spline"
     json.xAxis.labels.enabled  =true
     json.yAxis.labels.enabled  =true
     $('#line_chart').highcharts(json);
+    json.yAxis.labels.enabled  =false
+
+    json.xAxis.categories = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
+
+    json.chart.type = "column"
+    json.series = [{
+        color: "#4E4DE8",
+        data: [1,2,3,1, 1,2, 0.5]
+    }]
+    $('#container').highcharts(json);
+
+
+
+
+    $(".tag:contains(Approved)").css("background-color", "#4cceac")
+    $(".tag:contains(Pending)").css("background-color", "#ff6f59")
+    $(".tag:contains(Rejected)").css("background-color", "#db504a")
+
+
+    
  });
 
-
- $(document).ready(function() {
-    $(window).resize(function() { 
-        window.location.reload()
-    });
-    
-});
