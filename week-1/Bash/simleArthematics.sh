@@ -1,3 +1,5 @@
+#!/bin/bash  -x
+
 read -p "Enter A Value : " a
 read -p "Enter B Value : " b
 read -p "Enter B Value : " c

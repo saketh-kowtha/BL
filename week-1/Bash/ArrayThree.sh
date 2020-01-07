@@ -1,3 +1,5 @@
+#!/bin/bash  -x
+
 isPrime(){
     local num=$1
     flag=1

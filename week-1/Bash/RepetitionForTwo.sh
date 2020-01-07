@@ -1,3 +1,5 @@
+#!/bin/bash  -x
+
 read -p "Enter N : " n
 
 harmony=1.0

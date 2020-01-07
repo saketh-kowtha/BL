@@ -1,3 +1,5 @@
+#!/bin/bash  -x
+
 read -p "Enter Number : " n
 
 for((i=2; i<=$(bc <<< "scale=0; sqrt($n)"); i++))

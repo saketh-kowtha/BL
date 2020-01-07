@@ -1,3 +1,5 @@
+#!/bin/bash  -x
+
 read -p "Enter A B C : " a b c
 
 declare -A dict

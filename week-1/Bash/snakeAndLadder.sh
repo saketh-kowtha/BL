@@ -1,3 +1,5 @@
+#!/bin/bash  -x
+
 function indexOf(){
     local val=$2
     eval "declare -A arg_array="${1#*=}

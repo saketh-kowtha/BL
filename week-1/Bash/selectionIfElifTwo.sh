@@ -1,3 +1,5 @@
+#!/bin/bash  -x
+
 read -p "Enter Weekname in a numberic format : " n
 
 case $n in

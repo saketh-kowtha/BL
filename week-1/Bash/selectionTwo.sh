@@ -1,3 +1,5 @@
+#!/bin/bash  -x
+
 day=$1
 month=$2
 

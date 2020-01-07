@@ -1,3 +1,5 @@
+#!/bin/bash  -x
+
 for i in `seq 10`
 do
     arr[$i]=$((RANDOM % 1000))

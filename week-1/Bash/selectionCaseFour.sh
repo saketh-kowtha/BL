@@ -1,3 +1,5 @@
+#!/bin/bash  -x
+
 echo 1. Feet to Inch
 echo 2. Inch to Feet
 echo 3. Feet to Meter

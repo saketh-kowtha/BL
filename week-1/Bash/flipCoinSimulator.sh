@@ -1,3 +1,5 @@
+#!/bin/bash  -x
+
 n=0
 
 feilds=("H" "T")

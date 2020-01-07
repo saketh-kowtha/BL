@@ -1,3 +1,5 @@
+#!/bin/bash  -x
+
 #1. Getting Signle digit random number
 RAND=$((RANDOM % 10))
 

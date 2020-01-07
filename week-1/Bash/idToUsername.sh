@@ -1,4 +1,5 @@
-$a
+#!/bin/bash  -x
+
 read -p "Enter Id : " id
 
 case $id in

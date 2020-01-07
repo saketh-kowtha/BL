@@ -1,3 +1,5 @@
+#!/bin/bash  -x
+
 read -p "Enter single digit number : " n
 
 case $n in 

@@ -1,4 +1,4 @@
-
+#!/bin/bash  -x
 n=1
 counter=1
 while [ $n -gt 0 ] && [ $n -lt 100 ]

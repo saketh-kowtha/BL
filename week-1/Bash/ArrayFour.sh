@@ -1,3 +1,5 @@
+#!/bin/bash  -x
+
 read -p "Enter N : " n
 
 for i in `seq $n`

@@ -1,3 +1,5 @@
+#!/bin/bash  -x
+
 read -p "Enter Number : " n
 
 fact=1

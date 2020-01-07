@@ -1,3 +1,5 @@
+#!/bin/bash  -x
+
 max=0
 min=0
 for i in `seq 5`

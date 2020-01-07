@@ -1,3 +1,5 @@
+#!/bin/bash  -x
+
 function delta(){
     echo $(( b * b - 4 * a * c ))
 }

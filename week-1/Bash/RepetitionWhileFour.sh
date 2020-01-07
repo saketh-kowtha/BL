@@ -1,3 +1,5 @@
+#!/bin/bash  -x
+
 amount=100
 
 winCount=0

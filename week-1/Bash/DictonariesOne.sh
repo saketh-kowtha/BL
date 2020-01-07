@@ -1,3 +1,5 @@
+#!/bin/bash  -x
+
 function isAnyTen(){
     eval "declare -A arg_array="${1#*=}
     for i in "${!arg_array[@]}"; do

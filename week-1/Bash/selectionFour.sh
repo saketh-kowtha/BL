@@ -1,3 +1,5 @@
+#!/bin/bash  -x
+
 rand=$((RANDOM % 2))
 
 

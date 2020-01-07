@@ -1,3 +1,5 @@
+#!/bin/bash  -x
+
 month=$1
 day=$2
 year=$3

@@ -1,3 +1,5 @@
+#!/bin/bash  -x
+
 count=1
 
 read -p "Number of Random Numbers You need : " n

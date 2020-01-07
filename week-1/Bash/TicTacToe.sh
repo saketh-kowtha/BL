@@ -1,3 +1,5 @@
+#!/bin/bash  -x
+
 clear
 
 function indexToOpt(){
