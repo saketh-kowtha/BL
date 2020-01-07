@@ -1,0 +1,66 @@
+/* DOCUMENT INFORMATION
+	- Document: Manage Tickets Module Style Sheet
+	- Author:   Kowtha Saketh   
+*/
+
+.manage-tickets{
+    margin-top: 20px;
+    background-color: white;
+    padding: 20px;
+    border: 1px solid #d6d6d6;
+}
+
+.manage-tickets > .ticket{
+    padding: 20px 0px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.manage-tickets > .ticket:not(:last-child){
+    border-bottom: 1px solid #d6d6d6;
+}
+
+.ticket > div{
+    padding: 0px 50px 0px 10px;
+}
+
+.ticket > div:first-child > img{
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+    object-fit: cover;
+}
+
+.ticket > div:last-child{
+    margin-left: auto;
+}
+
+.ticket  div > p{
+    font-size: 12px;
+    line-height: 4px;
+    color: grey;
+}
+
+.ticket  div > p:first-child{
+    color: #121241;
+}
+
+
+.ticket > div > div {
+    color: gray;
+    float: left;
+    font-size: 10px;
+}
+
+.ticket > div > div::before{
+    content: "Last Updated : ";
+}
+
+.ticket > div > div:last-child{
+    margin-left: 50px
+}
+
+.ticket > div > div:last-child::before{
+    content: "Due in : ";
+}
+
