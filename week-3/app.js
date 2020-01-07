@@ -1,6 +1,13 @@
+/**
+ * @author Kowtha aketh
+ *
+ * @description TDD Unit testing - Source File
+ * 
+ */
+
+//Function it will convert Feet To Inch
 module.exports.feetToInch = (x) => 12 * x  
 
-module.exports.inchToFeet = (x) => x / 12
-
+//Function it will convert Feet To Yard
 module.exports.feetToYard = (x) => x / 3 
 
