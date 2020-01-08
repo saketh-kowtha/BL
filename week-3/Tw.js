@@ -32,3 +32,15 @@ function basicFare(time, distance) {
 }
 
 
+/**
+ * @name multipleRides
+ * @description Calculates the fare based on time and distance
+ * @param {1} time 
+ * @param {2} distance 
+ */
+
+function multipleRides(data) {
+    return data.reduce((sum, ele) => {
+        sum += basicFare(ele.time, ele.distance)
+    })
+}
