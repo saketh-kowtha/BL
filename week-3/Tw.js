@@ -1,5 +1,5 @@
 /**
- * @author Kowtha aketh
+ * @author Kowtha Saketh
  *
  * @description TDD Unit testing - Source File
  *
@@ -14,9 +14,29 @@
  *
  */
 
-const MIN_FARE = 5
-const COST_PER_MIN = 1
-const COST_PER_KM = 10
+const { getUserRidesInfo } = require("./rides.js")
+
+const BASIC_MIN_FARE = 5
+const BASIC_COST_PER_MIN = 1
+const BASIC_COST_PER_KM = 10
+
+const PREMIUM_MIN_FARE = 15
+const PREMIUM_COST_PER_MIN = 2
+const PREMIUM_COST_PER_KM = 20
+
+
+/**
+ * @name basicFare
+ * @description Calculates the fare based on time and distance
+ * @param {1} time
+ * @param {2} distance
+ */
+
+module.exports.premiumFare = (time, distance) => {
+    if (!time || !distance || isNaN(time) || isNaN(distance))
+        return Error("Invalid Arguments")
+    return PREMIUM_MIN_FARE + (PREMIUM_COST_PER_MIN * distance) + (PREMIUM_COST_PER_KM * time)
+}
 
 /**
  * @name basicFare
@@ -25,22 +45,49 @@ const COST_PER_KM = 10
  * @param {2} distance 
  */
 
-function basicFare(time, distance) {
+module.exports.basicFare = (time, distance) => {
     if (!time || !distance || isNaN(time) || isNaN(distance))
         return Error("Invalid Arguments")
-    return MIN_FARE + ( COST_PER_KM * distance ) + ( COST_PER_MIN * time )
+    return BASIC_MIN_FARE + (BASIC_COST_PER_KM * distance) + (BASIC_COST_PER_MIN * time)
 }
 
 
 /**
  * @name multipleRides
  * @description Calculates the fare based on time and distance
- * @param {1} time 
- * @param {2} distance 
+ * @param {1} JSON-ARRAY 
+ * 
  */
 
-function multipleRides(data) {
-    return data.reduce((sum, ele) => {
-        sum += basicFare(ele.time, ele.distance)
+module.exports.multipleRides = (data) => {
+    if (!data || !Array.isArray(data))
+        return Error("Invalid Arguments")
+    return data.reduce((sum = 0, ele) => {
+        sum += data.type === "premium" ? premiumFare(ele.time, ele.distance) : basicFare(ele.time, ele.distance)
     })
 }
+
+
+/**
+ * @name enhancedInvoice
+ * @description Calculates the fare based on time and distance
+ * @param {1}  Number
+ */
+
+module.exports.enhancedInvoice = (id) => {
+    if (!id)
+        return Error("No Arguments Passed")
+    let data = getUserRidesInfo(id)
+    if (!data)
+        return Error("Invalid ID")
+
+    let totalFare = multipleRides(data)
+    return {
+        id, 
+        numberOfRides: ridesCount,
+        totalFare,
+        averagePerRide: totalFare / ridesCount
+    }
+}
+
+
