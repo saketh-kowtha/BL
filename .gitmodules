@@ -1,0 +1,3 @@
+[submodule "week-5/fundoo"]
+	path = week-5/fundoo
+	url = https://gitlab.com/saketh-kowtha/fundoo.git
