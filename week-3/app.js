@@ -21,6 +21,8 @@ module.exports.feetToInch = (x) => {
         return Error("Invalid Type")
     else if (x <= -1)
         return Error("Number Must be positive")
+    else if (x == Infinity)
+        return Error("Argument should be finate")
     return 12 * x
 }
 

@@ -33,8 +33,11 @@ const PREMIUM_COST_PER_KM = 20
  */
 
 module.exports.premiumFare = (time, distance) => {
-    if (!time || !distance || isNaN(time) || isNaN(distance))
+    if (!time ||  isNaN(time))
         return Error("Invalid Arguments")
+    else if (!distance || !isNaN(distance))
+        return Error("Invalid Arguments")
+
     return PREMIUM_MIN_FARE + (PREMIUM_COST_PER_MIN * distance) + (PREMIUM_COST_PER_KM * time)
 }
 

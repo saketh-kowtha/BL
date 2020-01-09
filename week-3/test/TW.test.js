@@ -10,164 +10,52 @@ const { assert, expect } = require('chai')
 
 const {basicFare, premiumFare, multipleRides, enhancedInvoice} = require("../Tw")
 
-const rides = {
-    "A1": [
-        {
-            time: 10,
-            distance: 20,
-            type: 'premium'
-        },
-        {
-            time: 8,
-            distance: 20
-        },
-        {
-            time: 2,
-            distance: 20
-        },
-        {
-            time: 0,
-            distance: 20,
-            type: 'premium'
-        },
-        {
-            time: null,
-            distance: 20,
-            type: 'premium'
-        },
-        {
-            time: 'str',
-            distance: 20
-        },
-        {
-            time: '',
-            distance: 20
-        },
-        {
-            time: undefined,
-            distance: 20
-        },
-        {
-            time: NaN,
-            distance: 20
-        },
-        {
-            time: Infinity,
-            distance: 20
-        },
-        {
-            time: -1,
-            distance: 20
-        },
-        {
-            time: 3,
-            distance: null
-        },
-        {
-            time: 34,
-            distance: 'str'
-        },
-        {
-            time: '',
-            distance: Infinity
-        },
-        {
-            time: undefined,
-            distance: undefined
-        },
-        {
-            time: 1000,
-            distance: NaN,
-            type: undefined
-        },
-        {
-            time: -1,
-            distance: -100
-        },
-        {
-            time: -1,
-            distance: 5555555555555555555555
-        },
-    ],
-
-    "A3": [
-        {
-            time: 10,
-            distance: 20
-        },
-        {
-            time: 8,
-            distance: 20,
-            type: 'premium'
-        },
-        {
-            time: 10,
-            distance: 20
-        },
-        {
-            time: 8,
-            distance: 20,
-            type: 'premium'
-        },
-    ],
-    "A4": 1,
-    "A5": "User",
-    "A6": NaN,
+const testCases = {
+    "Fare": [NaN, undefined, Infinity, "", null, 0.58, "123", "abc", " ", -29, 0],
+    
 }
 
 describe("Testing Basic Fare", function () {
-    rides["A1"].forEach(e => {
-        it(`Time : ${e.time} , Distance : ${e.distance}`, () => {
-            assert.isNumber(basicFare(e.time, e.distance))
+    testCases["Fare"].forEach(e => {
+        const time = parseInt(Math.random() * 100)
+        const distance = parseInt(Math.random() * 100)
+        it(`Time : ${time} , Distance : ${distance}`, function () {
+            assert.isNumber(premiumFare({ time, distance }))
         })
     })
 
-    rides["A3"].forEach(e => {
-        it(`Time : ${e.time} , Distance : ${e.distance}`, () => {
-            assert.isNumber(basicFare(e.time, e.distance))
+
+    testCases["Fare"].forEach(e => {
+        const time = e
+        const distance = parseInt(Math.random() * 100)
+        it(`Time : ${time} , Distance : ${distance}`, function () {
+            if (e == NaN || e == undefined || e == null)
+                expect(basicFare({ time, distance })).to.throw("1 Argument is expected 0 passed")
+            else if (e == Infinity)
+                expect(basicFare({ time, distance })).to.throw("Argument should be finate")
+            else if (e < 0)
+                expect(basicFare({ time, distance })).to.throw("Number Must be positive")
+            else if (typeof e != "number")
+                expect(basicFare({ time, distance })).to.throw("Invalid Type")
         })
     })
-})
 
 
-describe("Testing Premium Fare", function () {
-    rides["A1"].forEach(e => {
-        it(`Time : ${e.time} , Distance : ${e.distance}`, () => {
-            assert.isNumber(premiumFare(e.time, e.distance))
+    testCases["Fare"].forEach(e => {
+        const time = e
+        const distance = parseInt(Math.random() * 100)
+        it(`Time : ${time} , Distance : ${distance}`, function () {
+            if (e == NaN || e == undefined || e == null)
+                expect(basicFare({ time, distance })).to.throw("Invalid Arguments")
+            else if (e == Infinity)
+                expect(basicFare({ time, distance })).to.throw("Argument should be finate")
+            else if (e < 0)
+                expect(basicFare({ time, distance })).to.throw("Number Must be positive")
+            else if (typeof e != "number")
+                expect(basicFare({ time, distance })).to.throw("Invalid Type")
         })
     })
 
-    rides["A3"].forEach(e => {
-        it(`Time : ${e.time} , Distance : ${e.distance}`, () => {
-            assert.isNumber(basicFare(e.time, e.distance))
-        })
-    })
 })
 
-describe("Testing Multiple Rides", function () {
-    it(`JSON A1 Data`, () => {
-        multipleRides(rides["A1"])
-    })
 
-    it(`JSON A2 Data`, () => {
-        multipleRides(rides["A2"])
-    })
-
-    it(`JSON A4 Data`, () => {
-        multipleRides(rides["A4"])
-    })
-
-    it(`JSON A5 Data`, () => {
-        multipleRides(rides["A5"])
-    })
-
-    it(`JSON A6 Data`, () => {
-        multipleRides(rides["A6"])
-    })
-})
-
-describe("Testing Enhanced Invoice", function () {
-    it(`Jon Data (rides)`, function () {
-        enhancedInvoice(rides)
-    })
-})
