@@ -33,9 +33,9 @@ const PREMIUM_COST_PER_KM = 20
  */
 
 module.exports.premiumFare = (time, distance) => {
-    if (!time || isNaN(time) || (typeof time == "string"))
+    if (!time && time != 0 || isNaN(time) || (typeof time == "string"))
         throw new Error("Invalid Arguments")
-    else if (!distance || isNaN(distance) || (typeof distance == "string") && distance.trim() == "")
+    else if (!distance && distance != 0 || isNaN(distance) || (typeof distance == "string"))
         throw new Error("Invalid Arguments")
     else if (time <= -1 || distance <= -1)
         throw new Error("Number Must be positive")
@@ -53,9 +53,9 @@ module.exports.premiumFare = (time, distance) => {
  */
 
 module.exports.basicFare = (time, distance) => {
-    if (!time || isNaN(time) || (typeof time == "string"))
+    if (!time && time != 0 || isNaN(time) || (typeof time == "string"))
         throw new Error("Invalid Arguments")
-    else if (!distance || isNaN(distance) || (typeof distance == "string"))
+    else if (!distance && distance != 0 || isNaN(distance) || (typeof distance == "string"))
         throw new Error("Invalid Arguments")
     else if (time <= -1 || distance <= -1)
         throw new Error("Number Must be positive")
@@ -77,6 +77,8 @@ module.exports.multipleRides = (data) => {
     if (!data || !Array.isArray(data))
         return Error("Invalid Arguments")
     return data.reduce((sum = 0, ele) => {
+        if (!ele.time || !ele.distance)
+                throw new Error("Invalid JSON passed")
         sum += data.type === "premium" ? premiumFare(ele.time, ele.distance) : basicFare(ele.time, ele.distance)
     })
 }
