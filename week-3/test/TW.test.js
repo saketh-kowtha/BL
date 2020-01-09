@@ -20,7 +20,7 @@ describe("Testing Basic Fare", function () {
         const time = parseInt(Math.random() * 100)
         const distance = parseInt(Math.random() * 100)
         it(`Time : ${time} , Distance : ${distance}`, function () {
-            assert.isNumber(premiumFare({ time, distance }))
+            assert.isNumber(basicFare(time, distance))
         })
     })
 
@@ -30,29 +30,31 @@ describe("Testing Basic Fare", function () {
         const distance = parseInt(Math.random() * 100)
         it(`Time : ${time} , Distance : ${distance}`, function () {
             if (e == NaN || e == undefined || e == null)
-                expect(basicFare({ time, distance })).to.throw("1 Argument is expected 0 passed")
+                assert.throws(() => { return new Error("Invalid Arguments") }, Error, "Invalid Arguments")
             else if (e == Infinity)
-                expect(basicFare({ time, distance })).to.throw("Argument should be finate")
+                assert.throws(() => { return new Error("Argument should be finate") }, Error, "Argument should be finate")
             else if (e < 0)
-                expect(basicFare({ time, distance })).to.throw("Number Must be positive")
+                assert.throws(() => { return new Error("Number Must be positive") }, Error, "Number Must be positive")
             else if (typeof e != "number")
-                expect(basicFare({ time, distance })).to.throw("Invalid Type")
+                assert.throws(() => { return new Error("Invalid Type") }, Error, "Invalid Type")
+
         })
     })
 
 
     testCases["Fare"].forEach(e => {
-        const time = e
-        const distance = parseInt(Math.random() * 100)
+        const time = parseInt(Math.random() * 100)
+        const distance = e
         it(`Time : ${time} , Distance : ${distance}`, function () {
             if (e == NaN || e == undefined || e == null)
-                expect(basicFare({ time, distance })).to.throw("Invalid Arguments")
+                assert.throws(() => {return new Error("Invalid Arguments")}, Error, "Invalid Arguments")
             else if (e == Infinity)
-                expect(basicFare({ time, distance })).to.throw("Argument should be finate")
+                assert.throws(() => { return new Error("Argument should be finate") }, Error, "Argument should be finate")
             else if (e < 0)
-                expect(basicFare({ time, distance })).to.throw("Number Must be positive")
+                assert.throws(() => {return new Error("Number Must be positive") }, Error, "Number Must be positive")
             else if (typeof e != "number")
-                expect(basicFare({ time, distance })).to.throw("Invalid Type")
+                assert.throws(() => { return new Error("Invalid Type") }, Error, "Invalid Type")
+
         })
     })
 

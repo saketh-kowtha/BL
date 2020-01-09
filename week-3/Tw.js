@@ -33,9 +33,9 @@ const PREMIUM_COST_PER_KM = 20
  */
 
 module.exports.premiumFare = (time, distance) => {
-    if (!time ||  isNaN(time))
+    if (!time || isNaN(time))
         return Error("Invalid Arguments")
-    else if (!distance || !isNaN(distance))
+    else if (!distance || isNaN(distance))
         return Error("Invalid Arguments")
 
     return PREMIUM_MIN_FARE + (PREMIUM_COST_PER_MIN * distance) + (PREMIUM_COST_PER_KM * time)
@@ -49,8 +49,11 @@ module.exports.premiumFare = (time, distance) => {
  */
 
 module.exports.basicFare = (time, distance) => {
-    if (!time || !distance || isNaN(time) || isNaN(distance))
+    if (!time || isNaN(time))
         return Error("Invalid Arguments")
+    else if (!distance || isNaN(distance))
+        return Error("Invalid Arguments")
+
     return BASIC_MIN_FARE + (BASIC_COST_PER_KM * distance) + (BASIC_COST_PER_MIN * time)
 }
 
@@ -86,7 +89,7 @@ module.exports.enhancedInvoice = (id) => {
 
     let totalFare = multipleRides(data)
     return {
-        id, 
+        id,
         numberOfRides: ridesCount,
         totalFare,
         averagePerRide: totalFare / ridesCount
