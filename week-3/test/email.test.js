@@ -51,4 +51,8 @@ describe("Validating Email", function () {
         expect(emailValidate("abc.@gmail.com")).equals("Emails last character cannot end with dot")
     })
 
+    it("With Multiple @'s", function () {
+        expect(emailValidate("abc@abc@gmail.com")).equals("Only single @ is allowed")
+    })
+
 })
