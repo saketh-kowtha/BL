@@ -32,17 +32,17 @@ const PREMIUM_COST_PER_KM = 20
  * @param {2} distance
  */
 
-module.exports.premiumFare = (time, distance) => {
-    if (!time && time != 0 || isNaN(time) || (typeof time == "string"))
+const premiumFare = (time, distance) => {
+    if (!time  || isNaN(time) || (typeof time == "string") || time == "")
         throw new Error("Invalid Arguments")
-    else if (!distance && distance != 0 || isNaN(distance) || (typeof distance == "string"))
+    else if (!distance || isNaN(distance) || (typeof distance == "string") || distance == "")
         throw new Error("Invalid Arguments")
     else if (time <= -1 || distance <= -1)
         throw new Error("Number Must be positive")
     else if (time == Infinity || distance == Infinity)
         throw new Error("Argument should be finate")
 
-    return PREMIUM_MIN_FARE + (PREMIUM_COST_PER_MIN * distance) + (PREMIUM_COST_PER_KM * time)
+    return PREMIUM_MIN_FARE + (PREMIUM_COST_PER_MIN * time) + (PREMIUM_COST_PER_KM * distance)
 }
 
 /**
@@ -52,10 +52,10 @@ module.exports.premiumFare = (time, distance) => {
  * @param {2} distance 
  */
 
-module.exports.basicFare = (time, distance) => {
-    if (!time && time != 0 || isNaN(time) || (typeof time == "string"))
+const basicFare = (time, distance) => {
+    if (!time && time != 0 || isNaN(time) || (typeof time == "string") || time == "")
         throw new Error("Invalid Arguments")
-    else if (!distance && distance != 0 || isNaN(distance) || (typeof distance == "string"))
+    else if (!distance && distance != 0 || isNaN(distance) || (typeof distance == "string") || distance == "")
         throw new Error("Invalid Arguments")
     else if (time <= -1 || distance <= -1)
         throw new Error("Number Must be positive")
@@ -73,14 +73,18 @@ module.exports.basicFare = (time, distance) => {
  * 
  */
 
-module.exports.multipleRides = (data) => {
+const multipleRides = (data) => {
     if (!data || !Array.isArray(data))
-        return Error("Invalid Arguments")
-    return data.reduce((sum = 0, ele) => {
-        if (!ele.time || !ele.distance)
-                throw new Error("Invalid JSON passed")
-        sum += data.type === "premium" ? premiumFare(ele.time, ele.distance) : basicFare(ele.time, ele.distance)
-    })
+        throw Error("Invalid Arguments")
+    return data.reduce((sum, ele) => {
+        if (!ele.time || !ele.distance) 
+            throw new Error("Invalid JSON passed")            
+        if (ele.type == "premium" || ele.type == "basic")
+            return sum +  (ele.type == "premium" ? premiumFare(ele.time, ele.distance) : basicFare(ele.time, ele.distance))
+        else
+            throw new Error("Invalid Ride Type")
+
+    }, 0)
 }
 
 
@@ -90,7 +94,7 @@ module.exports.multipleRides = (data) => {
  * @param {1}  Number
  */
 
-module.exports.enhancedInvoice = (id) => {
+const enhancedInvoice = (id) => {
     if (!id)
         return Error("No Arguments Passed")
     let data = getUserRidesInfo(id)
@@ -107,3 +111,9 @@ module.exports.enhancedInvoice = (id) => {
 }
 
 
+module.exports = {
+    enhancedInvoice,
+    multipleRides,
+    basicFare,
+    premiumFare
+}
