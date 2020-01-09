@@ -13,7 +13,7 @@ function validateEmail(email) {
         return "Must contain @ symbol"
     else if (atCount > 1)
         return "Only single @ is allowed"
-    else if ((/@./g).test(email))
+    else if (email.indexOf("@.") > -1)
         return "Tld cannot start with ."
     else if ((email.length - 1) - email.lastIndexOf(".") > 1)
         return `${email.substring(email.lastIndexOf(".") + 1)} is not a valid TLD, Last tld must contain atleast two characters`
