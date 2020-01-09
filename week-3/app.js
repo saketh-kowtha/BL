@@ -16,13 +16,13 @@
 
 module.exports.feetToInch = (x) => {
     if(!x && x!== 0)
-        return Error("1 Argument is expected 0 passed")
+        throw Error("1 Argument is expected 0 passed")
     else if (typeof x != "number")
-        return Error("Invalid Type")
+        throw Error("Invalid Type")
     else if (x <= -1)
-        return Error("Number Must be positive")
+        throw Error("Number Must be positive")
     else if (x == Infinity)
-        return Error("Argument should be finate")
+        throw Error("Number Must be Finate")
     return 12 * x
 }
 
@@ -35,12 +35,14 @@ module.exports.feetToInch = (x) => {
  * 
  */
 module.exports.feetToYard = (x) => {
-    if (!x)
+    if (!x && x!== 0)
         return Error("1 Argument is expected 0 passed")
     else if (typeof x != "number")
         return Error("Invalid Type")
     else if (x <= -1)
         return Error("Number Must be positive")
+    else if (x == Infinity)
+        throw Error("Number Must be Finate")
     return x / 3
 }
 

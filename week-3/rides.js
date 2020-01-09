@@ -77,19 +77,23 @@ const RIDES = {
     "A3": [
         {
             time: 10,
-            distance: 20
+            distance: 20,
+            type: "premium"
         },
         {
             time: 8,
-            distance: 20
+            distance: 20,
+            type: "premium"
         },
         {
             time: 10,
-            distance: 20
+            distance: 20,
+            type: "basic"
         },
         {
             time: 8,
-            distance: 20
+            distance: 20,
+            type: "basic"
         },
     ],
     "A4": 1,

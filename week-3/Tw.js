@@ -96,17 +96,17 @@ const multipleRides = (data) => {
 
 const enhancedInvoice = (id) => {
     if (!id)
-        return Error("No Arguments Passed")
+        throw Error("No Arguments Passed")
     let data = getUserRidesInfo(id)
     if (!data)
-        return Error("Invalid ID")
+        return "Invalid Id"
 
     let totalFare = multipleRides(data)
     return {
         id,
-        numberOfRides: ridesCount,
+        numberOfRides: data.length,
         totalFare,
-        averagePerRide: totalFare / ridesCount
+        averagePerRide: totalFare / data.length
     }
 }
 
