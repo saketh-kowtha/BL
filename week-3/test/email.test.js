@@ -55,4 +55,12 @@ describe("Validating Email", function () {
         expect(emailValidate("abc@abc@gmail.com")).equals("Only single @ is allowed")
     })
 
+    it("TLD with nums", function () {
+        expect(emailValidate("abc@gmail.com.1a")).equals("Email TLD should contain only chars")
+    })
+
+    it("Multiple Tld Names", function () {
+        expect(emailValidate("abc@gmail.com.aa.au")).equals("Email cannot have multiple Tld")
+    })
+
 })

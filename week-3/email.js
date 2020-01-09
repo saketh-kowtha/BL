@@ -9,6 +9,7 @@
 function validateEmail(email) {
     //Checking For @ in email
     const atCount = (email.match(/@/g) && email.match(/@/g).length || 0)
+
     if (atCount == 0)
         return "Must contain @ symbol"
     else if (atCount > 1)
@@ -25,11 +26,11 @@ function validateEmail(email) {
         return "Email tld is only allow characters or digits"
     else if (email.split("@")[0].split(".").length - 1 > 1)
         return "Double Dots are not allowed in email"
-    else if ((/(.@)/).test(email))
+    else if (email.indexOf(".@") > -1)
         return 'Emails last character cannot end with dot'
-    else if (!email.split(".")[email.split(".").length - 1].test(/[a-zA-z]/))
+    else if (!/^[a-zA-Z]+$/.test(email.split(".")[email.split(".").length - 1]))
         return 'Email TLD should contain only chars'
-    else if (email.split("@")[1].match(/,/g).length > 2)
+    else if (email.split("@")[1].split(".").length - 1 > 2)
         return 'Email cannot have multiple Tld'
 }
 
