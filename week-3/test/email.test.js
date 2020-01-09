@@ -39,8 +39,16 @@ describe("Validating Email", function () {
         expect(emailValidate("abc()*@abc.com")).equals("Email only allow character, digit, underscore, dot and dash")
     })
 
-    it("Checking Email (with invalid chars)", function () {
+    it("Invalid Tld (Invalid chars)", function () {
         expect(emailValidate("abc@%*.com")).equals("Email tld is only allow characters or digits")
+    })
+
+    it("Invalid Email (Double dots)", function () {
+        expect(emailValidate("abc..2002@gmail.com")).equals("Double Dots are not allowed in email")
+    })
+
+    it("Invalid Email (End with dot)", function () {
+        expect(emailValidate("abc.@gmail.com")).equals("Emails last character cannot end with dot")
     })
 
 })

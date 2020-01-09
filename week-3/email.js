@@ -21,11 +21,11 @@ function validateEmail(email) {
         return `Email first character cannot start with ${email[0]}`
     else if (!/^[a-zA-Z0-9-_.@]+$/.test(email.split("@")[0]))
         return `Email only allow character, digit, underscore, dot and dash`
-    else if (!/^[a-zA-Z0-9]+$/.test(email.split("@")[1]))
+    else if (!/^[a-zA-Z0-9]+$/.test(email.split("@")[1].split(".")[0]))
         return "Email tld is only allow characters or digits"
-    else if (email.split("@")[0].match(/./g).length > 1)
+    else if (email.split("@")[0].split(".").length - 1 > 1)
         return "Double Dots are not allowed in email"
-    else if (email.test(/.@/))
+    else if ((/(.@)/).test(email))
         return 'Emails last character cannot end with dot'
     else if (!email.split(".")[email.split(".").length - 1].test(/[a-zA-z]/))
         return 'Email TLD should contain only chars'
