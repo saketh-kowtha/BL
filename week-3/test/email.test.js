@@ -19,6 +19,8 @@ describe("Validating Email", function () {
         expect(emailValidate("abc@.com.my")).equals("Tld cannot start with .")
     })
 
-
+    it("Checking Valid Tld", function () {
+        expect(emailValidate("abc123@gmail.a")).equals("a is not a valid TLD, Last tld must contain atleast two characters")
+    })
 
 })

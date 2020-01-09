@@ -15,7 +15,7 @@ function validateEmail(email) {
         return "Only single @ is allowed"
     else if (email.indexOf("@.") > -1)
         return "Tld cannot start with ."
-    else if ((email.length - 1) - email.lastIndexOf(".") > 1)
+    else if (((email.length - 1) - email.lastIndexOf(".")) < 2)
         return `${email.substring(email.lastIndexOf(".") + 1)} is not a valid TLD, Last tld must contain atleast two characters`
     else if (!/[A-Za-z]/.test(email[0]))
         return `Email first character cannot start with ${email[0]}`
