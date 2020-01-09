@@ -25,7 +25,7 @@ let arr = [basicFare, premiumFare]
 //Testing Basic fare and Premium Fare 
 arr.forEach((func, index) => {
     //Group Tet Basic and Premium Fares
-    describe(`Testing ${(index + 1) % 2 ? "Basic" : "Premium"} Fare`, function () {
+    describe(`Test for ${(index + 1) % 2 ? "Basic" : "Premium"} Fare`, function () {
         
         //Positve Cases Group Testing
         describe("Positve Cases for Basic and Premium Fares", function () {
@@ -34,7 +34,7 @@ arr.forEach((func, index) => {
                 const distance = parseInt(Math.random() * 100) + 1
 
                 //Positive Case Testing
-                it(`Valid Types [Time : ${time}] , [Distance : ${distance}]`, function () {
+                it(`Should return true if time and date are valid [Time : ${time}] , [Distance : ${distance}]`, function () {
                     expect(func(time, distance)).to.be.oneOf([time * 2 + distance * 20 + 15, time * 1 + distance * 10 + 5])
                 })
             })
@@ -47,7 +47,7 @@ arr.forEach((func, index) => {
                 const time = testCase
                 const distance = parseInt(Math.random() * 100) + 1
                 //Negative Case Testing
-                it(`Invalid Types and Argument (Time) [Time : ${time} , Distance : ${distance}]`, function () {
+                it(`Should return Error if time is invalid or missing [Time : ${time} , Distance : ${distance}]`, function () {
                     if (testCase == NaN || testCase == undefined || testCase == null)
                         assert.throws(() => func(time, distance), Error, "Invalid Arguments")
                     else if (testCase == Infinity)
@@ -67,7 +67,7 @@ arr.forEach((func, index) => {
                 const time = parseInt(Math.random() * 100) + 1
                 const distance = testCase
                 //Negative Case (Distance) Testing
-                it(`Invalid Types and Argument (Distance) [Time : ${time} , Distance : ${distance}]`, function () {
+                it(`Should return Error if distance is invalid or missing  [Time : ${time} , Distance : ${distance}]`, function () {
                     if (testCase == NaN || testCase == undefined || testCase == null)
                         assert.throws(() => func(time, distance), Error, "Invalid Arguments")
                     else if (testCase == Infinity)
@@ -87,64 +87,64 @@ arr.forEach((func, index) => {
 
 
 //Group Test: Multiple Rides Total
-describe("Testing Multiple Rides Function", function () {
+describe("Test for Multiple Rides Function", function () {
 
     //Multiple Ride Negative Cases
     testCases["MultipleRides"].forEach(testCase => {
-        it(`Invalid Argument [${JSON.stringify(testCase)}]`, function () {
+        it(`Should return error if argument is invalid or missing [${JSON.stringify(testCase)}]`, function () {
             if (!Array.isArray(testCase))
                 assert.throws(() => multipleRides(testCase), Error, "Invalid Arguments")
         })
     })
 
     //Empty Object
-    it("Empty Object", function () {
+    it("hould return error if argument is Empty Object", function () {
         expect(multipleRides([])).to.equal(0)
     })
 
     //Empty Json
-    it("Object with empty JSON", function () {
+    it("Should return error if argument is array with empty JSON", function () {
         assert.throws(() => multipleRides([{}]), Error, "Invalid JSON passed")
         // expect(multipleRides([{}])).to.equal(0)
     })
 
     //Invalid Array Type
-    it("Invalid Array Type", function () {
+    it("Should return error if argument type is array", function () {
         assert.throws(() => multipleRides(["000"]), Error, "Invalid JSON passed")
     })
 
     //Invalid Property
-    it("Invalid Property", function () {
+    it("Should return error if ride type property is invalid", function () {
         assert.throws(() => multipleRides([{ time: 20, distance: 20 }, { time: 20, distance: 20, type: null }]), Error, "Invalid Ride Type")
     })
 
     //Multiple Rides Positive Case
-    it('Equality Check', function () {
+    it('Should return equal value for valid arguments', function () {
         expect(multipleRides([{ time: 20, distance: 20, type: "basic" }, { time: 20, distance: 20, type: "premium" }])).to.equal(680)
     })
 
 })
 
 //Group Test Enhanced Invoice
-describe("Enhanced Invoice", function () {
+describe("Test for Enhanced Invoice", function () {
 
     //Invalid ID
-    it("Invalid ID", function () {
+    it("Should return error for Invalid ID", function () {
         expect(enhancedInvoice("ae")).equals("Invalid Id")
     })
 
     //Invalid Argument
-    it("Without Arguments", function () {
+    it("Should return error if Without Arguments", function () {
         assert.throws(() => enhancedInvoice(), Error, "No Arguments Passed")
     })
 
     //Null Argument
-    it("null Argument", function () {
+    it("Should return error with null Argument", function () {
         assert.throws(() => enhancedInvoice(null), Error, "No Arguments Passed")
     })
 
     //Euqlity Check
-    it("Equality Check", function () {
+    it("Should return true Equality Check", function () {
         expect(enhancedInvoice("A3")).eql({ id: "A3", numberOfRides: 4, totalFare: 1294, averagePerRide: 323.5 })
     })
 
