@@ -35,4 +35,8 @@ describe("Validating Email", function () {
         expect(emailValidate(".abc@abc.com")).equals("Email first character cannot start with .")
     })
 
+    it("Checking Email (with invalid chars)", function () {
+        expect(emailValidate("abc()*@abc.com")).equals("Email only allow character, digit, underscore, dot and dash")
+    })
+
 })
