@@ -31,4 +31,8 @@ describe("Validating Email", function () {
         expect(emailValidate("abc123@.com.com")).equals("Tld cannot start with .")
     })
 
+    it("Checking Email (starting with .)", function () {
+        expect(emailValidate(".abc@abc.com")).equals("Email first character cannot start with .")
+    })
+
 })
