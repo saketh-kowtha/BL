@@ -33,7 +33,7 @@ const PREMIUM_COST_PER_KM = 20
  */
 
 module.exports.premiumFare = (time, distance) => {
-    if (!time || isNaN(time) || (typeof time == "string") && time.trim() == "")
+    if (!time || isNaN(time) || (typeof time == "string"))
         throw new Error("Invalid Arguments")
     else if (!distance || isNaN(distance) || (typeof distance == "string") && distance.trim() == "")
         throw new Error("Invalid Arguments")
@@ -41,7 +41,7 @@ module.exports.premiumFare = (time, distance) => {
         throw new Error("Number Must be positive")
     else if (time == Infinity || distance == Infinity)
         throw new Error("Argument should be finate")
-    
+
     return PREMIUM_MIN_FARE + (PREMIUM_COST_PER_MIN * distance) + (PREMIUM_COST_PER_KM * time)
 }
 
@@ -53,9 +53,9 @@ module.exports.premiumFare = (time, distance) => {
  */
 
 module.exports.basicFare = (time, distance) => {
-    if (!time || isNaN(time) || (typeof time == "string") && time.trim() == "")
+    if (!time || isNaN(time) || (typeof time == "string"))
         throw new Error("Invalid Arguments")
-    else if (!distance || isNaN(distance) || (typeof distance == "string") && distance.trim() == "")
+    else if (!distance || isNaN(distance) || (typeof distance == "string"))
         throw new Error("Invalid Arguments")
     else if (time <= -1 || distance <= -1)
         throw new Error("Number Must be positive")
