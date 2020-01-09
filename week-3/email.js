@@ -20,7 +20,7 @@ function validateEmail(email) {
         return `${email.substring(email.lastIndexOf(".") + 1)} is not a valid TLD, Last tld must contain atleast two characters`
     else if (!/[A-Za-z]/.test(email[0]))
         return `Email first character cannot start with ${email[0]}`
-    else if (!/^[a-zA-Z0-9-_.@]+$/.test(email.split("@")[0]))
+    else if (!/^[a-zA-Z0-9-_.@+]+$/.test(email.split("@")[0]))
         return `Email only allow character, digit, underscore, dot and dash`
     else if (!/^[a-zA-Z0-9]+$/.test(email.split("@")[1].split(".")[0]))
         return "Email tld is only allow characters or digits"
@@ -32,6 +32,7 @@ function validateEmail(email) {
         return 'Email TLD should contain only chars'
     else if (email.split("@")[1].split(".").length - 1 > 2)
         return 'Email cannot have multiple Tld'
+    return true
 }
 
 module.exports = validateEmail

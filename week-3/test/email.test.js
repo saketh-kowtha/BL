@@ -9,7 +9,7 @@ const emailValidate = require('../email')
 
 const { assert, expect } = require("chai")
 
-describe("Validating Email", function () {
+describe("Validating Email (Negative Test Cases)", function () {
 
     it("Without @", function () {
         expect(emailValidate("abc")).equals("Must contain @ symbol")
@@ -61,6 +61,47 @@ describe("Validating Email", function () {
 
     it("Multiple Tld Names", function () {
         expect(emailValidate("abc@gmail.com.aa.au")).equals("Email cannot have multiple Tld")
+    })
+
+})
+
+
+describe("Validating Email Positive Cases", function () {
+    
+    it("abc@yahoo.com", function () {
+        expect(emailValidate("abc@yahoo.com")).equal(true)
+    })
+
+    it("abc-100@yahoo.com", function () {
+        expect(emailValidate("abc-100@yahoo.com")).equal(true)
+    })
+
+    it("abc.100@yahoo.com", function () {
+        expect(emailValidate("abc.100@yahoo.com")).equal(true)
+    })
+
+    it("abc111@abc.com", function () {
+        expect(emailValidate("abc111@abc.com")).equal(true)
+    })
+
+    it("abc-100@abc.net", function () {
+        expect(emailValidate("abc-100@abc.net")).equal(true)
+    })
+
+    it("abc.100@abc.com.net", function () {
+        expect(emailValidate("abc.100@abc.com.net")).equal(true)
+    })
+
+    it("abc@1.com", function () {
+        expect(emailValidate("abc@1.com")).equal(true)
+    })
+
+    it("abc@gmail.com.com", function () {
+        expect(emailValidate("abc@gmail.com.com")).equal(true)
+    })
+
+    it("abc+100@abc.net", function () {
+        expect(emailValidate("abc+100@abc.net")).equal(true)
     })
 
 })
