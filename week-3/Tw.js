@@ -1,4 +1,7 @@
 /**
+ * 
+ * 
+ * 
  * @author Kowtha Saketh
  *
  * @description TDD Unit testing - Source File
@@ -33,7 +36,7 @@ const PREMIUM_COST_PER_KM = 20
  */
 
 const premiumFare = (time, distance) => {
-    if (!time  || isNaN(time) || (typeof time == "string") || time == "")
+    if (!time || isNaN(time) || (typeof time == "string") || time == "")
         throw new Error("Invalid Arguments")
     else if (!distance || isNaN(distance) || (typeof distance == "string") || distance == "")
         throw new Error("Invalid Arguments")
@@ -61,7 +64,7 @@ const basicFare = (time, distance) => {
         throw new Error("Number Must be positive")
     else if (time == Infinity || distance == Infinity)
         throw new Error("Argument should be finate")
-    
+
     return BASIC_MIN_FARE + (BASIC_COST_PER_KM * distance) + (BASIC_COST_PER_MIN * time)
 }
 
@@ -77,10 +80,10 @@ const multipleRides = (data) => {
     if (!data || !Array.isArray(data))
         throw Error("Invalid Arguments")
     return data.reduce((sum, ele) => {
-        if (!ele.time || !ele.distance) 
-            throw new Error("Invalid JSON passed")            
+        if (!ele.time || !ele.distance)
+            throw new Error("Invalid JSON passed")
         if (ele.type == "premium" || ele.type == "basic")
-            return sum +  (ele.type == "premium" ? premiumFare(ele.time, ele.distance) : basicFare(ele.time, ele.distance))
+            return sum + (ele.type == "premium" ? premiumFare(ele.time, ele.distance) : basicFare(ele.time, ele.distance))
         else
             throw new Error("Invalid Ride Type")
 

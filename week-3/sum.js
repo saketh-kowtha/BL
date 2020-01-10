@@ -10,6 +10,9 @@ function sum(a, b) {
     
     if (isNaN(a) || isNaN(b))
         return 0
+
+    if(Array.isArray(a) || Array.isArray(b))
+        return 0
     
     let c = a + b
 

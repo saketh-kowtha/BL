@@ -1,4 +1,6 @@
 /**
+ * 
+ * 
  * @author Kowtha aketh
  *
  * @description TDD Unit testing - Source File
@@ -7,7 +9,7 @@
 
 
 /**
- * 
+ * Converts Feet to Inch
  * @name feetToInch
  * @description it will convert Feet To Inch
  * @param{1} Number  
@@ -29,6 +31,7 @@ module.exports.feetToInch = (x) => {
 
 /**
  *
+ * Converts  Feet to Yard
  * @name feetToInch
  * @description it will convert Feet To Yard
  * @param{1} Number

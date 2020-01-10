@@ -1,5 +1,7 @@
 /**
- * @author Kowtha aketh
+ * Unit Testing for feetToInch and feetToYard functions
+ * 
+ * @author Kowtha Saketh
  *
  * @description TDD Unit testing - app.js
  * 

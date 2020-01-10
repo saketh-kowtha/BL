@@ -1,4 +1,6 @@
 /**
+ * Unit Testing for basicFare, PremiumFare, MultipleFare and EnhancedInvoice Functions
+ * 
  * @author Kowtha aketh
  *
  * @description TDD Unit testing - TW.js
@@ -10,7 +12,7 @@ const { assert, expect } = require('chai')
 
 const { basicFare, premiumFare, multipleRides, enhancedInvoice } = require("../Tw")
 
-//ample Test Cases
+//Sample Test Cases
 const testCases = {
     "Fare": [NaN, undefined, Infinity, "", null, [], {}, 0.58, "123", "abc", " ", -29, 0],
     "MultipleRides": [NaN, null, Infinity, 12, "", {}],
