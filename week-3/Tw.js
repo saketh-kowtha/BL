@@ -98,6 +98,7 @@ const multipleRides = (data) => {
  */
 
 const enhancedInvoice = (id) => {
+    debugger
     if (!id)
         throw Error("No Arguments Passed")
     let data = getUserRidesInfo(id)

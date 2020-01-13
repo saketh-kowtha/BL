@@ -6,8 +6,13 @@
  */
 
 
+/**
+ * Validating Email
+ * @param {1} email
+ *  
+ */
+
 function validateEmail(email) {
-    //Checking For @ in email
     const atCount = (email.match(/@/g) && email.match(/@/g).length || 0)
     const _email = email.split("@")
     if (atCount == 0)

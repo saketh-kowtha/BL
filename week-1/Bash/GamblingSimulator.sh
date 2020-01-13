@@ -1,9 +1,9 @@
-#!/bin/bash  -x
+
 
 function gambling(){
     amount=100.0
 
-    while [ $(echo "$amount>95.0"|bc) -gt 0 ] && [ $(echo "$amount<110.0"|bc) -gt 0 ]
+    while [ $(echo "$amount>50.0"|bc) -gt 0 ] && [ $(echo "$amount < 150.0"|bc) -gt 0 ]
     do
         rand=$((RANDOM % 2))
         if [ $rand -eq 1 ]
