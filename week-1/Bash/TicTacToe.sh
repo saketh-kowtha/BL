@@ -70,15 +70,15 @@ function isWinning(){
 
     if [ "${matrix[0,2]}" == "${matrix[1,1]}" ]  && [ "${matrix[0,2]}" == "$symbol" ] && [ "${matrix[2,0]}" == " " ]
     then
-        echo "2,0 dig 4"
+        echo "2,0"
         return
     elif [ "${matrix[2,0]}" == "${matrix[1,1]}" ]  && [ "${matrix[2,0]}" == "$symbol" ] && [ "${matrix[0,2]}" == " " ]
     then
-        echo "0,2 dig 5"
+        echo "0,2"
         return
     elif [ "${matrix[2,0]}" == "${matrix[0,2]}" ]  && [ "${matrix[2,0]}" == "$symbol" ] && [ "${matrix[1,1]}" == " " ]
     then
-        echo "1,1 dig 6"
+        echo "1,1"
         return
     fi
 
@@ -86,17 +86,14 @@ function isWinning(){
     do
         if [[ ( "${matrix[$i,0]}" == "${matrix[$i,1]}" ) &&  "${matrix[$i,0]}" == "$symbol"  ]] || [[ ( "${matrix[$i,1]}" == "${matrix[$i,2]}" ) && "${matrix[$i,1]}" == "$symbol" ]] ||  [[ ( "${matrix[$i,0]}" == "${matrix[$i,2]}" ) && "${matrix[$i,2]}" == "$symbol" ]]
         then
-            # if [ "${matrix[$i,0]}" == "$symbol" ] || [ "${matrix[$i, 1]}" == "$symbol" ] || [ "${matrix[$i, 2]}" == "$symbol" ] 
-            # then
-                for ((j=0; j<3; j++))
-                do
-                    if [ "${matrix[$i,$j]}" == " " ]
-                    then
-                        echo "$i,$j row"
-                        return
-                    fi
-                done
-            # fi
+            for ((j=0; j<3; j++))
+            do
+                if [ "${matrix[$i,$j]}" == " " ]
+                then
+                    echo "$i,$j"
+                    return
+                fi
+            done
         fi
     done
 
@@ -104,17 +101,14 @@ function isWinning(){
     do
         if [[ ( "${matrix[0,$i]}" == "${matrix[1,$i]}" && "${matrix[0,$i]}" == "$symbol" ) ]] || [[ ( "${matrix[1,$i]}" == "${matrix[2,$i]}" ) && "${matrix[1,$i]}" == "$symbol" ]] ||  [[ ( "${matrix[0,$i]}" == "${matrix[2,$i]}" ) && "${matrix[2,$i]}" == "$symbol" ]]
         then
-            # if [ "${matrix[0,$i]}" == "$symbol" ] || [ "${matrix[1,$i]}" == "$symbol" ] || [ "${matrix[2,$i]}" == "$symbol" ] 
-            # then
-                for ((j=0; j<3; j++))
-                do
-                    if [ "${matrix[$i,$j]}" == " " ]
-                    then
-                        echo "$i,$j col"
-                        return
-                    fi
-                done
-            # fi
+            for ((j=0; j<3; j++))
+            do
+                if [ "${matrix[$j,$i]}" == " " ]
+                then
+                    echo "$i,$j"
+                    return
+                fi
+            done
         fi
     done
 
@@ -270,25 +264,21 @@ do
         read -p "Enter your position '$turn' : " pos
     else
         myMove="$(isWinning $turn)"
-        echo $myMove $turn
         if [ "$myMove" != "null" ]
         then
             pos="$(indexToOpt $myMove)"
         else
             myMove="$(isWinning $playerSymbol)"
-            echo $myMove $playerSymbol
             if [ "$myMove" != "null" ]
             then
                 pos="$(indexToOpt $myMove)"
             else 
                 myMove="$(isCornerAvailable)"
-                echo $myMove $turn
                 if [ "$myMove" != "null" ]
                 then
                     pos="$(indexToOpt $myMove)"
                 else
                     myMove="$(emptyFeild)"
-                    echo $myMove $turn    
                     pos="$(indexToOpt $myMove)"
                 fi
             fi
