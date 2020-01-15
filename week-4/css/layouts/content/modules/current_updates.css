@@ -48,6 +48,10 @@
     font-weight: 600;
     font-size: 14px;
     line-height: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 80%;
 }
 
 .node > div > label::before{
@@ -75,6 +79,7 @@
     position: absolute;  
     left: 45px;
     margin-top: -20px;
+    width: 100%;
 }
 
 .node > div > div,  .node > div > label{
