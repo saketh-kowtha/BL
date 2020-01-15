@@ -56,15 +56,15 @@ function isWinning(){
 
     if [ "${matrix[0,0]}" == "${matrix[1,1]}" ]  && [ "${matrix[0,0]}" == "$symbol" ] && [ "${matrix[2,2]}" == " " ]
     then
-        echo "2,2 dig 1"
+        echo "2,2"
         return
     elif [ "${matrix[2,2]}" == "${matrix[1,1]}" ]  && [ "${matrix[2,2]}" == "$symbol" ] && [ "${matrix[0,0]}" == " " ]
     then
-        echo "0,0 dig 2"
+        echo "0,0"
         return
     elif [ "${matrix[2,2]}" == "${matrix[0,0]}" ]  && [ "${matrix[2,2]}" == "$symbol" ] && [ "${matrix[1,1]}" == " " ]
     then
-        echo "1,1 dig 3"
+        echo "1,1"
         return
     fi
 
@@ -105,7 +105,7 @@ function isWinning(){
             do
                 if [ "${matrix[$j,$i]}" == " " ]
                 then
-                    echo "$i,$j"
+                    echo "$j,$i"
                     return
                 fi
             done
@@ -264,21 +264,25 @@ do
         read -p "Enter your position '$turn' : " pos
     else
         myMove="$(isWinning $turn)"
+        # echo $myMove $turn
         if [ "$myMove" != "null" ]
         then
             pos="$(indexToOpt $myMove)"
         else
             myMove="$(isWinning $playerSymbol)"
+            # echo $myMove $turn
             if [ "$myMove" != "null" ]
             then
                 pos="$(indexToOpt $myMove)"
             else 
                 myMove="$(isCornerAvailable)"
+                # echo $myMove $turn
                 if [ "$myMove" != "null" ]
                 then
                     pos="$(indexToOpt $myMove)"
                 else
                     myMove="$(emptyFeild)"
+                    # echo $myMove $turn
                     pos="$(indexToOpt $myMove)"
                 fi
             fi
